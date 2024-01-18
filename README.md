@@ -10,4 +10,4 @@ langage utiliser:
 
 Le BUT ?
 
-fournir une application qui permet de rentré des information : le killomètrage , repas , séjour à l'hotel
+fournir une application qui permet de rentré des information : le killomètrage (kilo) , repas (rep) , séjour à l'hotel (hot)
