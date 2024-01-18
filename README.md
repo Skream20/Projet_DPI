@@ -1,7 +1,8 @@
 # Projet_DPI
+
 Le projet DPI:
 
-langage  utiliser:
+langage utiliser:
 
 - php
 - html / css
@@ -9,5 +10,4 @@ langage  utiliser:
 
 Le BUT ?
 
-fournir une application qui permet de rentré des information : le killomètrage , repas , séjour à l'hotel 
-
+fournir une application qui permet de rentré des information : le killomètrage , repas , séjour à l'hotel
