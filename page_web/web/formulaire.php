@@ -10,17 +10,15 @@
 <body>
   <h1>Formulaire de Remboursement</h1>
   <h3>Veuillez remplire les information ci-dessous</h3>
-  <form action=" " method="get">
+  <form action="traitement.php" method="get">
     <div>
-      <label for="kilo">Kilomètre parcourus : </label>
-      <input type="number" id="kilo" name="TXTkilo" /> <br />
-      <br />
-
-      <label for="rep">Repas Consommer : </label>
+      <label for="kilo">Kilomètre parcourus/> <br />
+        <br /> : </label>
+      <input type="number" id="kilo" name="TXTkilo" <label for="rep">Repas Consommer : </label>
       <input type="number" id="rep" name="TXTrep" /> <br />
       <br />
 
-      <label for="hot">Kilomètre parcourus : </label>
+      <label for="hot">nuit d'hotel : </label>
       <input type="number" id="hot" name="TXThot" /> <br />
       <br />
     </div>
