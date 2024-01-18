@@ -1,4 +1,4 @@
-#information : le killomètrage (kilo) , repas (rep) , séjour à l'hotel (hot)
+
 <?php
 # On récupère les données du formulaire GET
 $ETP = $GET_["TXTETP"];
@@ -7,16 +7,15 @@ $repas = $GET_["TXTrep"];
 $nuit = $GET_["Txthot"];
 
 #calule fiche de fraie
-function calcule_remboursement($km, $repas, $nuit)
+function calcule_remboursement($km, $repas, $nuit, $ETP)
 {
     # Calcule des frais de transport
-    $km = $km * 0.62;
-
+    $kmt = $km * 0.62;
+    $ETPT = $ETP * 110;
     # Calcul du total des frais de nuit et repas
     $nuitT = $nuit * 80;
     $remT = $repas * 29;
-    $km = (float)$km;
-    $T = $nuitT + $remT + $km;
+    $T = $nuitT + $remT + $kmt + $ETPT;
 
     # Affiche les valeurs
     echo ("");
