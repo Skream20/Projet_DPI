@@ -12,7 +12,7 @@ Le BUT ?
 
 //indiquer plus tard//
 
-**day 1:**
+<h1>day 1</h1>
 
 Donovan:
 - creation des page html:
