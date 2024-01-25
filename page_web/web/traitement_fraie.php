@@ -13,14 +13,14 @@ $nuit = $GET_["Txthot"];
 function calcule_remboursement($km, $repas, $nuit, $ETP)
 {
 
-    $km *= 0.62;
+    $kmt = 0.62;
     #etape
-    $ETP *= 110;
-    $nuit *= 80;
-    $repas *= 29;
+    $ETPt = 110;
+    $nuitt = 80;
+    $repast = 29;
 
 
-    $T = $nuit + $repas + $km + $ETP;
+    $T = $nuitt + $repast + $kmt + $ETPt;
 
 
     return [
@@ -30,7 +30,7 @@ function calcule_remboursement($km, $repas, $nuit, $ETP)
         'FraisKmt' => $km,
         'FraisETPT' => $ETP
     ];
-}
+   
 
 
 if (isset($_GET['BOvalider'])) {
