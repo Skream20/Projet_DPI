@@ -12,18 +12,12 @@ $TabloNomFamille = file($NomFichier);
 $NomFichier = 'garcon.txt';
 $TabloPrenom = file($NomFichier);
 
-// Nombre d'étudiants à ajouter
-$nombreEtudiants = 10;
+// rand(x, y) fournit un nombre au hasard entre x et y
+$n = rand(1, sizeof($TabloNomFamille));			// $n contient un numéro de ligne au hasard
+$p = rand(1, sizeof($TabloPrenom));			// $p contient un un numéro de ligne au hasard
 
-// Ajout de 10 étudiants
-for ($i = 1; $i <= $nombreEtudiants; $i++) {
-	$n = rand(0, sizeof($TabloNomFamille) - 1);
-	$p = rand(0, sizeof($TabloPrenom) - 1);
-}
-
+// Insertion dans la table ETUDIANT du ni�me nom de famille et du pi�me pr�nom 
 $sql = "INSERT INTO etudiant(nom, prenom) VALUES ('$TabloNomFamille[$n]', '$TabloPrenom[$p]');";
-
-function hello_
 
 echo "Sql : " . $sql . "<br />";
 $result = $cnxBDD->query($sql)
