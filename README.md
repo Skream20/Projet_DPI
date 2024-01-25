@@ -2,17 +2,17 @@
 
 <h1>Le projet DPI:</h1>
 
-langage utiliser:
+<h3>langage utiliser:</h3>
 
-- php
-- html / css
-- sql
+- **php**
+- **html / css**
+- **sql**
 
 Le BUT ?
 
 //indiquer plus tard//
 
-<h2>day 1</h2>
+<h3>day 1</h3>
 
 Donovan:
 - creation des page html:
