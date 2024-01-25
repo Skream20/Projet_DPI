@@ -13,23 +13,22 @@ $nuit = $GET_["Txthot"];
 function calcule_remboursement($km, $repas, $nuit, $ETP)
 {
 
-    $kmt = $km * 0.62;
-    $ETPT = $ETP * 110;
+    $km *= 0.62;
+    #etape
+    $ETP *= 110;
+    $nuit *= 80;
+    $repas *= 29;
 
 
-    $nuitT = $nuit * 80;
-    $remT = $repas * 29;
-
-
-    $T = $nuitT + $remT + $kmt + $ETPT;
+    $T = $nuit + $repas + $km + $ETP;
 
 
     return [
         'Total' => $T,
-        'FraisNuitT' => $nuitT,
-        'FraisRepasT' => $remT,
-        'FraisKmt' => $kmt,
-        'FraisETPT' => $ETPT
+        'FraisNuitT' => $nuit,
+        'FraisRepasT' => $repas,
+        'FraisKmt' => $km,
+        'FraisETPT' => $ETP
     ];
 }
 
