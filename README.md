@@ -14,6 +14,13 @@ Le BUT ?
 
 **day 1:**
 
+Donovan:
+- creation des page html:
+    - visiteur: (https://github.com/Skream20/Projet_DPI/blob/main/page_web/web/Visiteur.html)
+    - validation de fraie()
+- creation css:
+    - css:( https://github.com/Skream20/Projet_DPI/blob/main/page_web/web/index.css)
+
 yann:
 
 - lier *php* au fiche de traitement 
