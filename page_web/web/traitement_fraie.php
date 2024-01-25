@@ -1,5 +1,7 @@
 
 <?php
+include 'db_connect.php';
+
 
 # On récupère les données du formulaire GET
 $ETP = $GET_["TXTETP"];
@@ -24,10 +26,10 @@ function calcule_remboursement($km, $repas, $nuit, $ETP)
 
     return [
         'Total' => $T,
-        'FraisNuit' => $nuitT,
-        'FraisRepas' => $remT,
-        'FraisKm' => $kmt,
-        'FraisETP' => $ETPT
+        'FraisNuitT' => $nuitT,
+        'FraisRepasT' => $remT,
+        'FraisKmt' => $kmt,
+        'FraisETPT' => $ETPT
     ];
 }
 
@@ -36,7 +38,6 @@ if (isset($_GET['BOvalider'])) {
 
     calcule_remboursement($km, $repas, $nuit, $ETP);
 }
-
 
 #ETP	Forfait Etape	110.00
 #modifier	KM	Frais Kilométrique	000.62
