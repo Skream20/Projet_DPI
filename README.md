@@ -1,6 +1,6 @@
 # Projet_DPI
 
-Le projet DPI:
+<h1>Le projet DPI:</h1>
 
 langage utiliser:
 
