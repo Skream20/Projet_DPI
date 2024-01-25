@@ -16,7 +16,7 @@ Donovan:
 
 - creation des page html:
   - visiteur: (https://github.com/Skream20/Projet_DPI/blob/main/page_web/web/Visiteur.html)
-  - validation de fraie()
+  - validation de fraie(https://github.com/Skream20/Projet_DPI/blob/main/page_web/web/validation_frais.html)
 - creation css:
   - css:( https://github.com/Skream20/Projet_DPI/blob/main/page_web/web/index.css)
 
