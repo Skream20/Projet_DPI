@@ -10,17 +10,31 @@ $nuit = $GET_["Txthot"];
 #calule fiche de fraie
 function calcule_remboursement($km, $repas, $nuit, $ETP)
 {
-    # Calcule des frais de transport
+
     $kmt = $km * 0.62;
     $ETPT = $ETP * 110;
-    # Calcul du total des frais de nuit et repas
+
+
     $nuitT = $nuit * 80;
     $remT = $repas * 29;
+
+
     $T = $nuitT + $remT + $kmt + $ETPT;
+
+
+    return [
+        'Total' => $T,
+        'FraisNuit' => $nuitT,
+        'FraisRepas' => $remT,
+        'FraisKm' => $kmt,
+        'FraisETP' => $ETPT
+    ];
 }
+
+
 if (isset($_GET['BOvalider'])) {
 
-    calul_prix($km, $repas, $nuit);
+    calcule_remboursement($km, $repas, $nuit, $ETP);
 }
 
 
