@@ -1,6 +1,4 @@
-# Projet_DPI
-
-<h1>Le projet DPI:</h1>
+# <h1>Projet_DPI</h1>
 
 <h3>langage utiliser:</h3>
 
