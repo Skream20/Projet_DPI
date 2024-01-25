@@ -1,5 +1,6 @@
 
 <?php
+
 # On récupère les données du formulaire GET
 $ETP = $GET_["TXTETP"];
 $km = $GET_["TXTkilo"];
@@ -16,16 +17,7 @@ function calcule_remboursement($km, $repas, $nuit, $ETP)
     $nuitT = $nuit * 80;
     $remT = $repas * 29;
     $T = $nuitT + $remT + $kmt + $ETPT;
-
-    # Affiche les valeurs
-    echo ("");
-    echo ("forfaie étape: $ETP");
-    echo ("Nuitée $nuit * 80 = $nuitT</br>");
-    echo ("Repas $repas * 29 = $remT</br>");
-    echo ("Frais véhicule : $km</br>");
-    echo ("TOTAL : $T");
 }
-
 if (isset($_GET['BOvalider'])) {
 
     calul_prix($km, $repas, $nuit);
