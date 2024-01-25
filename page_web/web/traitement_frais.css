@@ -1,0 +1,27 @@
+body {
+    background-color: rgba(248, 119, 34, 0.856);
+    color:white;
+    padding-left: 100px;
+
+}
+
+table{
+    
+	display: inline-block; /* La balise devient de type block. */
+	width: 150px;
+    border: 1px;
+}
+
+
+
+label
+{
+	display: block;
+	width: 125px;
+	float: left;
+}
+
+#pied{
+    position:absolute;
+    left: 550px;
+}

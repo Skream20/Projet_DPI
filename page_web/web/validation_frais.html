@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<head>
+    <link rel ="stylesheet" href="traitement_frais.css"/>
+</head>
+<body>
+    <h1>Validation des frais par visiteur</h1>
+    <br>
+    <div>
+        <form method="get" action="">
+            <p>
+            
+                <label for="visiteur">Choisir le visiteur: </label> 
+                <select name="Txtvisiteur" id="visiteur">
+                    <option value=""></option>
+                    <option value="donovan">Donovan</option>
+                </select>
+                <br>
+                
+                <label for="mois">Mois: </label> 
+                <select name="TxTmois" id="mois">
+                    <option value=""></option>
+                    <option value="janvier">Janvier</option>
+                    <option value="fevrier">Février</option>
+                    <option value="mars">Mars</option>
+                    <option value="avril">Avril</option>
+                    <option value="mai">Mai</option>
+                    <option value="juin">Juin</option>
+                    <option value="juillet">Juillet</option>
+                    <option value="aout">Aout</option>
+                    <option value="septembre">Septembre</option>
+                    <option value="octobre">Octobre</option>
+                    <option value="novembre">Novembre</option>
+                    <option value="decembre">Decembre</option>
+                </select>
+                <select>
+                    <option value=""></option>
+                </select>
+                <br>
+                <h2>Frais au forfait</h2>
+
+                <table>
+                    <tr>
+                        <th><label for="repas">Repas midi</label></th>
+                        <th><label for="nuit">Nuitée</label></th>
+                        <th><label for="etape">Etape</label></th>
+                        <th><label for="kilometre">Km</label></th>
+                        <th>Situation</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <th><input type="text" name="TxTrepas" id="repas"></th>
+                        <th><input type="text" name="TxTnuit" id="nuit"></th>
+                        <th><input type="text" name="TxTetape" id="etape"></th>
+                        <th><input type="text" name="TxTkilometre" id="kilometre"></th>
+                        <th><label for="situation">Valide</label>
+                            <input type="radio" name="Txtsituation" id="situation"></th>
+                        <th><label for="situation">Non Valide</label>
+                            <input type="radio" name="Txtsituation" id="situation"></th>
+                    </tr>
+                </table>
+                <br>
+                <br>
+                <br>
+
+                <label for="justificatifs">Nb Justificatifs</label>
+                <input type="text" name="justificatifs" id="justificatifs">
+                <input id="pied" type="submit" value="Soumettre la requête" />
+
+            </p>
+        </form>
+    </div>
+</body>
