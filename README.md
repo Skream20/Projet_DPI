@@ -10,4 +10,13 @@ langage utiliser:
 
 Le BUT ?
 
-fournir une application qui permet de rentré des information : le killomètrage (kilo) , repas (rep) , séjour à l'hotel (hot)
+//indiquer plus tard//
+
+**day 1:**
+
+yann:
+
+- lier *php* au fiche de traitement 
+- creation des fiches de traitement de donné:
+    - récupéré les données des formulaires => envoyer dans la base de donné
+    - traiter les données des formulaire (fiche traitement.*php*) 
