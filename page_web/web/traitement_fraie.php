@@ -30,7 +30,7 @@ function calcule_remboursement($km, $repas, $nuit, $ETP)
         'FraisKmt' => $km,
         'FraisETPT' => $ETP
     ];
-   
+}  
 
 
 if (isset($_GET['BOvalider'])) {
