@@ -2,47 +2,43 @@
 include 'db_connect.php';
 
 // Connexion à la base de données BDEtudiant
-$visiteurBD= connexion();
+$visiteurBD = connexion();
 
+$id = $_GET["TxTID"];
+$nom = $_GET["TxTNom"];
+$prenom = $_GET["TxTprenom"];
+$adress = $_GET["TxTadresse"];
+$ville = $_GET["TxTville"];
+$CP = $_GET["TxTcp"];
+$date_emb = $_GET["embauche"];
+$login = $_GET["login"];
+$mdp = $_GET["TxTmdp"];
 
-$id = $GET_["TxTID"];
-$nom = $GET_["TxTNom"];
-$prenom = $GET_["TxTprenom"];
-$adress = $GET_["TxTadresse"];
-$ville = $GET_["TxTville"];
-$CP = $GET_["TxTcp"];
-$date_emb = $GET_["embauche"];
-$login = $GET_["login"];  
-$mdp =$GET_["TxTmdp"];
+function visiteur($visiteurBD, $id, $nom, $prenom, $adress, $ville, $CP, $date_emb, $login, $mdp)
+{
+    // Préparation de la requête SQL (ajustez les colonnes et les valeurs en conséquence)
+    $sql = "INSERT INTO visiteur(VIS_ID, VIS_PRENOM, VIS_NOM, VIS_ADRESSE, VIS_CP, VIS_VILLE, VIS_DATE_EMBAUCHE, login, mdp) 
+            VALUES ('$id', '$prenom', '$nom', '$adress', '$CP', '$ville', '$date_emb', '$login', '$mdp')";
 
-function visiteur($id,$nom,$prenom,$adress,$ville,$CP,$date_emb,$login,$mdp){
-    while (True){
-        $sql = "INSERT INTO visiteur(VIS_ID,VIS_PRENOM,VIS_NOM,VIS_ADRESSE,VIS_CP,VIS_VILLE,VIS_DATE_EMBAUCHE) VALUES ('$id','$nom','');";
+    echo "Sql : " . $sql . "<br />";
 
+    // Exécution de la requête
+    $result = $visiteurBD->query($sql);
+
+    if ($result === TRUE) {
+        echo "Enregistrement ajouté avec succès.";
+        #echo "Voulez vous login?"
+        #if 
+    } else {
+        echo "Erreur lors de l'ajout de l'enregistrement : " . $visiteurBD->error;
     }
-
-
-
 }
-
 
 if (isset($_GET['submit'])) {
-
-    visiteur($id,$nom,$nom,$prenom,$adress,$ville,$CP,$date_emb,$login,$mdp);
+    while (true) {
+        visiteur($visiteurBD, $id, $nom, $prenom, $adress, $ville, $CP, $date_emb, $login, $mdp);
+    }
 }
 
-
-
-echo "Sql : " . $sql . "<br />";
-$result = $visiteurBD->query($sql)
-	or die("Requete invalide : " . $sql);
-
-// Fermer la connexion MYSQL
+// Fermer la connexion MYSQL à la fin du script
 $visiteurBD->close();
-
-
-
-
-
-
-
