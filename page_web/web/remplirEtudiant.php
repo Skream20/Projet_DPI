@@ -21,7 +21,10 @@ $TabloAdress = file($NomFichier);
 $n = rand(1, sizeof($TabloNomFamille));			// $n contient un numéro de ligne au hasard
 $p = rand(1, sizeof($TabloPrenom));			// $p contient un un numéro de ligne au hasard
 $a = rand(1, sizeof($TabloAdress));
-$id = $TabloNomFamille[0] + $TabloPrenom[0];
+$firstLetterFirstName = substr($firstName, 0, 1);
+$firstLetterLastName = substr($lastName, 0, 1);
+$id = $firstLetterFirstName . $firstLetterLastName;
+
 // Insertion dans la table ETUDIANT du ni�me nom de famille et du pi�me pr�nom 
 $sql = "INSERT INTO visiteur(VIS_ID,VIS_PRENOM, VIS_NOM,VIS_ADRESSE) VALUES ('$id','$TabloNomFamille[$n]', '$TabloPrenom[$p]','$TabloAdress[$a]');";
 
