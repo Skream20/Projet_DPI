@@ -32,30 +32,45 @@
                     <option value="novembre">Novembre</option>
                     <option value="decembre">Decembre</option>
                 </select>
-                <select>
+                <select name="TxTmois" id="mois">
                     <option value=""></option>
+                    <option value="janvier">Janvier</option>
+                    <option value="fevrier">Février</option>
+                    <option value="mars">Mars</option>
+                    <option value="avril">Avril</option>
+                    <option value="mai">Mai</option>
+                    <option value="juin">Juin</option>
+                    <option value="juillet">Juillet</option>
+                    <option value="aout">Aout</option>
+                    <option value="septembre">Septembre</option>
+                    <option value="octobre">Octobre</option>
+                    <option value="novembre">Novembre</option>
+                    <option value="decembre">Decembre</option>
                 </select>
                 <br>
                 <h2>Frais au forfait</h2>
 
-                <table>
+                <table border="1">
                     <tr>
                         <th><label for="repas">Repas midi</label></th>
                         <th><label for="nuit">Nuitée</label></th>
                         <th><label for="etape">Etape</label></th>
                         <th><label for="kilometre">Km</label></th>
                         <th>Situation</th>
-                        <th></th>
                     </tr>
                     <tr>
-                        <th><input type="text" name="TxTrepas" id="repas"></th>
-                        <th><input type="text" name="TxTnuit" id="nuit"></th>
-                        <th><input type="text" name="TxTetape" id="etape"></th>
-                        <th><input type="text" name="TxTkilometre" id="kilometre"></th>
-                        <th><label for="situation">Valide</label>
-                            <input type="radio" name="Txtsituation" id="situation"></th>
-                        <th><label for="situation">Non Valide</label>
-                            <input type="radio" name="Txtsituation" id="situation"></th>
+                        <td><input type="text" name="TxTrepas" id="repas"></td>
+                        <td><input type="text" name="TxTnuit" id="nuit"></td>
+                        <td><input type="text" name="TxTetape" id="etape"></td>
+                        <td><input type="text" name="TxTkilometre" id="kilometre"></td>
+                        <td>
+                            
+                            <input type="radio" name="Txtsituation" id="valide">
+                            <label for="valide">Valide</label>
+                            <br>
+                            <input type="radio" name="Txtsituation" id="nonvalide">
+                            <label for="nonvalide">Non Valide</label>
+                        </td>
                     </tr>
                 </table>
                 <br>
