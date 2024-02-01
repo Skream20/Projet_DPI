@@ -43,4 +43,11 @@ Antoine:
 
 - Installation des serveurs Front end et Back end (Debian)
 - Installation de màj
-- 
+-
+
+Donovan:
+
+- création et modificatio(html/css)
+  yann:
+- php
+- probleme ( sur VIS_ID in php)
