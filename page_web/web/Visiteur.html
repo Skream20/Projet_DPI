@@ -1,56 +1,65 @@
 <!DOCTYPE html>
 <head>
-    <link rel ="stylesheet" href="index.css"/>
+  <link rel="stylesheet" href="index.css" />
 </head>
 <body>
-    <div id="titre">
-        <h1>VISITEUR</h1>
-        <br>
-    </div>
-    <div id="questionnaire">
-        <form method="get" action="">
-            <p>
-                <code>
-                    <label for="identifiant">Identifiant: </label> 
-                    <input type="number" name="TxTID" id="ID">
-                    <br>
-                    
-                    <label for="Nom">Nom: </label> 
-                    <input type="text" name="TxTNom" id="nom">
-                    <br>
+  <div id="titre">
+    <h1>VISITEUR</h1>
+    <br />
+  </div>
+  <div id="questionnaire">
+    <form method="get" action="formulaire_visiteur.php">
+      <p>
+        <code>
+          <label for="identifiant">Identifiant: </label>
+          <input type="number" name="TxTID" id="ID" />
+          <br />
 
-                    <label for="prenom">Prenom: </label> 
-                    <input type="text" name="TxTprenom" id="prenom">
-                    <br>
+          <label for="Nom">Nom: </label>
+          <input type="text" name="TxTNom" id="nom" />
+          <br />
 
-                    <label for="adresse">Adresse: </label> 
-                    <input type="text" name="TxTadresse" id="adresse">
-                    <br>
+          <label for="prenom">Prenom: </label>
+          <input type="text" name="TxTprenom" id="prenom" />
+          <br />
 
-                    <label for="ville">Ville: </label> 
-                    <input type="text" name="TxTville" id="ville">
-                    <br>
+          <label for="adresse">Adresse: </label>
+          <input type="text" name="TxTadresse" id="adresse" />
+          <br />
 
-                    <label for="cp">CP: </label> 
-                    <input type="text" name="TxTcp" id="cp">
-                    <br>
+          <label for="ville">Ville: </label>
+          <input type="text" name="TxTville" id="ville" />
+          <br />
 
+<<<<<<< HEAD
+          <label for="cp">CP: </label>
+          <input type="text" name="TxTcp" id="cp" />
+          <br />
+
+          <label for="embauche">Date embauche: </label>
+          <input type="date" name="TxTembauche" id="embauche" />
+          <br />
+=======
                     <label for="embauche">Date embauche: </label> 
-                    <input type="date" name="embauche" id="TxTembauche">
+                    <input type="date" name="TxTembauche" id="embauche">
                     <br>
 
                     <label for="login">Login: </label> 
-                    <input type="text" name="login" id="TxTlogin">
+                    <input type="text" name="TxTlogin" id="login">
                     <br>
+>>>>>>> f42a6c5b9092714d70cef008761b1ee3f43073a5
 
-                    <label for="mdp">Mdp: </label> 
-                    <input type="password" name="TxTmdp" id="mdp">
-                    <br>
+          <label for="login">Login: </label>
+          <input type="text" name="TxTlogin" id="login" />
+          <br />
 
-                    <input type="submit" value="Envoyer le formulaire" name="submit" />
-                    
-                </code>
-            </p>
-        </form>
-    </div>
+          <label for="mdp">Mdp: </label>
+          <input type="password" name="TxTmdp" id="mdp" />
+          <br />
+
+          <input type="submit" value="Envoyer le formulaire" name="submit" />
+        </code>
+      </p>
+    </form>
+  </div>
 </body>

@@ -1,0 +1,56 @@
+label
+{
+	display: block;
+	width: 100px;
+	float: left;
+}
+
+#image{
+    width:200px;
+    height:100px;
+    position :absolute ;
+    left : 500px;
+    top : 1px;
+
+}
+
+form {
+    
+}
+
+#hautpage{
+    color : rgb(130, 193, 252);
+    background-color: white;
+    padding-left: 100px;
+    display: block;
+}
+
+#pageprinc{
+    background-color: rgb(130, 193, 252);
+    color:white;
+    padding-left: 100px;
+}
+
+#moisform{
+    margin-left: 80px;
+    width:1000px;
+    display:inline-block;
+}
+
+#anneeform{
+    margin-left: 400px;
+    width:1000px;
+    position:absolute;
+    left: 100px;
+}
+
+#mois{
+    position:absolute;
+    left: 410px;
+    
+}
+
+#annee{
+    position:absolute;
+    left: 625px;
+}

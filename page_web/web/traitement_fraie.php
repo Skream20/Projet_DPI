@@ -3,6 +3,7 @@
 include 'db_connect.php';
 
 
+
 # On récupère les données du formulaire GET
 $ETP = $GET_["TXTETP"];
 $km = $GET_["TXTkilo"];
@@ -30,7 +31,7 @@ function calcule_remboursement($km, $repas, $nuit, $ETP)
         'FraisKmt' => $km,
         'FraisETPT' => $ETP
     ];
-}  
+}
 
 
 if (isset($_GET['BOvalider'])) {

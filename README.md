@@ -38,3 +38,16 @@ Antoine:
   - Création d'un dossier et un document SISR: (https://estran.sharepoint.com/:w:/r/sites/DigitalPulseInnovation/_layouts/15/doc2.aspx?action=edit&sourcedoc=%7B40aa7ea0-d7e7-40cf-9547-585a7328d33d%7D&wdOrigin=TEAMS-WEB.teamsSdk.openFilePreview&wdExp=TEAMS-CONTROL&web=1)
 
 <h3>day 2</h3>
+
+Antoine:
+
+- Installation des serveurs Front end et Back end (Debian)
+- Installation de màj
+-
+
+Donovan:
+
+- création et modificatio(html/css)
+  yann:
+- php
+- probleme ( sur VIS_ID in php)
