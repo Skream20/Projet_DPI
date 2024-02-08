@@ -51,3 +51,11 @@ Donovan:
   yann:
 - php
 - probleme ( sur VIS_ID in php)
+
+
+  <h3>Day 3</h3>
+  yann / donovan:
+
+  - Résolution du problème dans le code php:
+      - https://github.com/Skream20/Projet_DPI/blob/main/page_web/web/formulaire_visiteur.php
+      - https://github.com/Skream20/Projet_DPI/blob/main/page_web/web/remplirEtudiant.php
