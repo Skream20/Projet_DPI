@@ -59,3 +59,9 @@ Donovan:
   - Résolution du problème dans le code php:
       - https://github.com/Skream20/Projet_DPI/blob/main/page_web/web/formulaire_visiteur.php
       - https://github.com/Skream20/Projet_DPI/blob/main/page_web/web/remplirEtudiant.php
+
+Antoine:
+
+- Documentation des installations des OS
+- Installation de MariaDB
+- Création de IIS
