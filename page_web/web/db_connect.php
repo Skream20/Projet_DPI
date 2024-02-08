@@ -12,5 +12,5 @@ function connexion()
         echo "Echec lors de la connexion à MySQL : (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
         return ($mysqli->connect_errno);
     }
-    return $mysqli;
+    return $mysqli;;
 }
