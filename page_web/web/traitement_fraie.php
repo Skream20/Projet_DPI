@@ -8,7 +8,7 @@ $ETP = $GET_["TXTETP"];
 $km = $GET_["TXTkilo"];
 $repas = $GET_["TXTrep"];
 $nuit = $GET_["Txthot"];
-
+$ETP = $GET_["TxTetape"];
 #calule fiche de fraie
 function calcule_remboursement($km, $repas, $nuit, $ETP)
 {
