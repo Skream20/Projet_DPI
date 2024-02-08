@@ -22,7 +22,7 @@ $n = rand(1, sizeof($TabloNomFamille));			// $n contient un numéro de ligne au 
 $p = rand(1, sizeof($TabloPrenom));			// $p contient un un numéro de ligne au hasard
 $a = rand(1, sizeof($TabloAdress));
 $idFirstName = substr($TabloPrenom, 0, 1);
-$idName = substr($TabloPrenom, 0, 1);
+$idName = substr(trim($TabloNomFamille[$n]), 0, 1);
 $id = $idFirstName . $idName;
 echo ($id);
 // Insertion dans la table ETUDIANT du ni�me nom de famille et du pi�me pr�nom 
