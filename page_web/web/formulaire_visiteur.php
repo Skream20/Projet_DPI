@@ -13,6 +13,8 @@ $CP = $_GET["TxTcp"];
 $date_emb = $_GET["TxTembauche"];
 $login = $_GET["TxTlogin"];
 $mdp = $_GET["TxTmdp"];
+
+/*
 $date = horloge();
 
 function horloge()
@@ -26,7 +28,7 @@ function horloge()
 
     echo "Le $Joursemaine $joursmois $mois $annee à $heure";
 }
-
+*/
 
 
 #enregistre user
@@ -34,10 +36,10 @@ function horloge()
 function visiteur($visiteurBD, $id, $nom, $prenom, $adress, $ville, $CP, $date_emb, $login, $mdp, $date)
 {
     // Préparation de la requête SQL (ajustez les colonnes et les valeurs en conséquence)
-    $sql = "INSERT INTO visiteur(VIS_ID, VIS_PRENOM, VIS_NOM, VIS_ADRESSE, VIS_CP, VIS_VILLE) 
-            VALUES ('$id', '$prenom', '$nom', '$adress', '$CP', '$ville')
+    $sql = "INSERT INTO visiteur(VIS_ID, VIS_PRENOM, VIS_NOM, VIS_ADRESSE, VIS_CP, VIS_VILLE, VIS_DATE_EMBAUCHE) 
+            VALUES ('$id', '$prenom', '$nom', '$adress', '$CP', '$ville', '$date_emb')
             ";
-    $sql2 = "INSERT INTO USER(VIS_ID, login,password,dteConexion)values('$id', '$login','$mdp','$date')";
+    $sql2 = "INSERT INTO USER(VIS_ID, login,password)values('$id', '$login','$mdp')";
 
     echo "Sql : " . $sql . "<br />";
     echo "sql :" . $sql2 . "<br/>";
