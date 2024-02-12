@@ -1,6 +1,7 @@
-
 <?php
 include 'db_connect.php';
+
+$cnxBDD = connexion();
 
 
 
@@ -10,20 +11,16 @@ $km = $GET_["TXTkilo"];
 $repas = $GET_["TXTrep"];
 $nuit = $GET_["Txthot"];
 $ETP = $GET_["TxTetape"];
+
 #calule fiche de fraie
 function calcule_remboursement($km, $repas, $nuit, $ETP)
 {
-
-    $kmt = 0.62;
-    #etape
-    $ETPt = 110;
-    $nuitt = 80;
-    $repast = 29;
-
-
-    $T = $nuitt + $repast + $kmt + $ETPt;
-
-
+    $km = 0.62;
+    $ETP = 110;
+    $nuit = 80;
+    $repas= 25;
+    $T = $nuit + $repast + $km + $ETP;
+    #faire calcule
     return [
         'Total' => $T,
         'FraisNuitT' => $nuit,
@@ -33,13 +30,30 @@ function calcule_remboursement($km, $repas, $nuit, $ETP)
     ];
 }
 
+#insert dans la BDD
+function fraie_visiteur($km, $repas, $nuit, $ETP)
+{
+    calcule_remboursement($km, $repas, $nuit, $ETP);
+
+    $sql = "INSERT INTO frais_forfait(FOR_ID,FOR_LIB,FOR_MONTANT)
+    VALUES ('REP','REPAS','$repas')";
+
+    $sql = "INSERT INTO frais_forfait(FOR_ID,FOR_LIB,FOR_MONTANT)
+    VALUES ('NUIT','REPAS','$nuit')";
+
+    $sql = "INSERT INTO frais_forfait(FOR_ID,FOR_LIB,FOR_MONTANT)
+    VALUES ('KM','REPAS','$km')";
+
+    $sql = "INSERT INTO frais_forfait(FOR_ID,FOR_LIB,FOR_MONTANT)
+    VALUES ('ETP','REPAS','$ETP')";
+
+    // Exécution de la requête
+    echo "Sql : " . $sql . "<br />";
+}
 
 if (isset($_GET['BOvalider'])) {
 
-    calcule_remboursement($km, $repas, $nuit, $ETP);
+    fraie_visiteur($km, $repas, $nuit, $ETP)
 }
 
-#ETP	Forfait Etape	110.00
-#modifier	KM	Frais Kilométrique	000.62
-#modifier	NUI	Nuitée Hôtel	080.00
-#modifier	REP	Repas Restaurant	025.00
+$result = $cnxBDD->query($sql);

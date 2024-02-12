@@ -52,16 +52,26 @@ Donovan:
 - php
 - probleme ( sur VIS_ID in php)
 
-
   <h3>Day 3</h3>
   yann / donovan:
 
   - Résolution du problème dans le code php:
-      - https://github.com/Skream20/Projet_DPI/blob/main/page_web/web/formulaire_visiteur.php
-      - https://github.com/Skream20/Projet_DPI/blob/main/page_web/web/remplirEtudiant.php
+    - https://github.com/Skream20/Projet_DPI/blob/main/page_web/web/formulaire_visiteur.php
+    - https://github.com/Skream20/Projet_DPI/blob/main/page_web/web/remplirEtudiant.php
 
 Antoine:
 
 - Documentation des installations des OS
 - Installation de MariaDB
 - Création de IIS
+
+<h3>day 3<h3>
+
+yann / donovan:
+
+- debut de programmation de traitement \_fraie.php
+  noan:
+- refaire la clé étrangère fiche frais FFR_ID mettre en lien avec la table ligne frais forfait
+  frais forfait table fini (donnée déjà rentré dans la table)
+  prochaine fois on commence ligne_frais_forfait et apres manquera plus que la table fiche_frais et finir avec les derniers html et css afin d'avoir une bonne mise en page
+  finir php aussi pour quand on valide un formulaire que ça nous ramène direct sur une nouvelle page
