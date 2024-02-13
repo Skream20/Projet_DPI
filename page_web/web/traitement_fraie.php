@@ -18,7 +18,7 @@ function calcule_remboursement($km, $repas, $nuit, $ETP)
     $km = 0.62;
     $ETP = 110;
     $nuit = 80;
-    $repas= 25;
+    $repas = 25;
     $T = $nuit + $repast + $km + $ETP;
     #faire calcule
     return [
@@ -53,7 +53,7 @@ function fraie_visiteur($km, $repas, $nuit, $ETP)
 
 if (isset($_GET['BOvalider'])) {
 
-    fraie_visiteur($km, $repas, $nuit, $ETP)
+    fraie_visiteur($km, $repas, $nuit, $ETP);
 }
 
 $result = $cnxBDD->query($sql);
