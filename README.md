@@ -80,5 +80,11 @@ yann / donovan:
 yann/donovan
 
 - correction bug lier au FFR_ID: création de remplir_id
+  -https://github.com/Skream20/Projet_DPI/blob/main/page_web/web/remplir_id.php   
 - continuation de la programmation de traitement fraie.php
+ -https://github.com/Skream20/Projet_DPI/blob/main/page_web/web/traitement_fraie.php
+  
+encore à faire:
+ - refaire la clé étrangère fiche frais FFR_ID mettre en lien avec la table ligne frais forfait
+  frais forfait table fini (donnée déjà rentré dans la table)
 
