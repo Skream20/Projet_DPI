@@ -6,21 +6,24 @@ $cnxBDD = connexion();
 
 
 # On récupère les données du formulaire GET
-$ETP = $GET_["TXTETP"];
-$km = $GET_["TXTkilo"];
-$repas = $GET_["TXTrep"];
-$nuit = $GET_["Txthot"];
-$ETP = $GET_["TxTetape"];
-
+$ETPt = $GET_["TXTETP"];
+$kmt = $GET_["TXTkilo"];
+$repast = $GET_["TXTrep"];
+$nuitt = $GET_["Txthot"];
+$ETPt = $GET_["TxTetape"];
+$mois = $GET_["TxtMois"];
+$id = $_GET["TxTID"];
 #calule fiche de fraie
-function calcule_remboursement($km, $repas, $nuit, $ETP)
+function calcule_remboursement($kmt, $repast, $nuitt, $ETPt)
 {
     $km = 0.62;
     $ETP = 110;
     $nuit = 80;
     $repas = 25;
-    $T = $nuit + $repast + $km + $ETP;
-    #faire calcule
+    #totale
+    $T = $nuit * $nuitt + $repas * $repast + $km * $kmt + $ETP * $ETPt;
+
+
     return [
         'Total' => $T,
         'FraisNuitT' => $nuit,
@@ -30,22 +33,16 @@ function calcule_remboursement($km, $repas, $nuit, $ETP)
     ];
 }
 
+
+
+//remplissage de la base de donnée fiche_frais
 #insert dans la BDD
-function fraie_visiteur($km, $repas, $nuit, $ETP)
+function fraie_visiteur($km, $repas, $nuit, $ETP, $id)
 {
     calcule_remboursement($km, $repas, $nuit, $ETP);
 
-    $sql = "INSERT INTO frais_forfait(FOR_ID,FOR_LIB,FOR_MONTANT)
-    VALUES ('REP','REPAS','$repas')";
-
-    $sql = "INSERT INTO frais_forfait(FOR_ID,FOR_LIB,FOR_MONTANT)
-    VALUES ('NUIT','REPAS','$nuit')";
-
-    $sql = "INSERT INTO frais_forfait(FOR_ID,FOR_LIB,FOR_MONTANT)
-    VALUES ('KM','REPAS','$km')";
-
-    $sql = "INSERT INTO frais_forfait(FOR_ID,FOR_LIB,FOR_MONTANT)
-    VALUES ('ETP','REPAS','$ETP')";
+    $sql = "INSERT INTO fiche_frais(FFR_ID, VIS_ID, ETA_ID, FFR_ANNEE, FFR_MOIS, FFR_MONTANT_VALIDE, FFR_NB_JUSTIFICATIF, FFR_DATE_MODIF)
+    VALUES ( '$id', )";
 
     // Exécution de la requête
     echo "Sql : " . $sql . "<br />";
@@ -53,7 +50,7 @@ function fraie_visiteur($km, $repas, $nuit, $ETP)
 
 if (isset($_GET['BOvalider'])) {
 
-    fraie_visiteur($km, $repas, $nuit, $ETP);
+    fraie_visiteur($km, $repas, $nuit, $ETP, $id);
 }
 
 $result = $cnxBDD->query($sql);
