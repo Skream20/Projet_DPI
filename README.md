@@ -75,3 +75,15 @@ yann / donovan:
   frais forfait table fini (donnée déjà rentré dans la table)
   prochaine fois on commence ligne_frais_forfait et apres manquera plus que la table fiche_frais et finir avec les derniers html et css afin d'avoir une bonne mise en page
   finir php aussi pour quand on valide un formulaire que ça nous ramène direct sur une nouvelle page
+
+<h3>day 5<h3>
+yann/donovan
+
+- correction bug lier au FFR_ID: création de remplir_id
+- continuation de la programmation de -https://github.com/Skream20/Projet_DPI/blob/main/page_web/web/remplir_id.php
+- continuation de la programmation de traitement fraie.php -https://github.com/Skream20/Projet_DPI/blob/main/page_web/web/traitement_fraie.php
+
+encore à faire:
+
+- refaire la clé étrangère fiche frais FFR_ID mettre en lien avec la table ligne frais forfait
+  frais forfait table fini (donnée déjà rentré dans la table)
