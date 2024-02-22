@@ -87,3 +87,14 @@ encore à faire:
 
 - refaire la clé étrangère fiche frais FFR_ID mettre en lien avec la table ligne frais forfait
   frais forfait table fini (donnée déjà rentré dans la table)
+
+<h3>day 6</h3>
+
+donovan:
+- régler utf8 html
+-  correction clée étranger FFR_ID
+-  correction dans la base de donner avec "default value = 1 " de FFR_ID
+yann:
+- continuation du php de fiche fraie
+noam:
+-création html fiche fraie
