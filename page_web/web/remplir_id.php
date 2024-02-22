@@ -3,6 +3,9 @@ include 'db_connect.php';
 
 $cnxBDD = connexion();
 
+$mois = echo date('m');
+$anne = echo date('Y');
+
 $km = $_GET['TxTKm'];
 $repas = $_GET['TxTRepas'];
 $nuit = $_GET['TxTNuit'];
