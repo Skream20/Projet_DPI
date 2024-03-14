@@ -37,10 +37,10 @@ function getNextFFR_ID()
 #calule fiche de fraie
 function calcule_remboursement($kmt, $repast, $nuitt, $ETPt)
 {
-    $km = 0.62;
-    $ETP = 110;
-    $nuit = 80;
-    $repas = 25;
+    $km = 0.62*;
+    $ETP = 110*;
+    $nuit = 80*;
+    $repas = 25*;
     #totale
     $T = $nuit * $nuitt + $repas * $repast + $km * $kmt + $ETP * $ETPt;
 
@@ -62,15 +62,16 @@ function fiche_fraie_visiteur($km, $repas, $nuit, $ETP, $id, $mois, $annee, $m_v
 {
     calcule_remboursement($km, $repas, $nuit, $ETP);
 
+    $vis_id = "SELECT  VIS_ID from visiteur;";
+    $eta_id = "SELECT ";
     $sql = "INSERT INTO fiche_frais(FFR_ID, VIS_ID, ETA_ID, FFR_ANNEE, FFR_MOIS, FFR_MONTANT_VALIDE, FFR_NB_JUSTIFICATIF, FFR_DATE_MODIF)
-    VALUES ( '$id','$annee','$mois','$m_valide')";
+    VALUES ( '$id','$vis_id','$m_valide','$annee','$mois','$T','$n_justif',)";
 
     // Exécution de la requête
     echo "Sql : " . $sql . "<br />";
 }
 
 if (isset($_GET['BOvalider'])) {
-    include 'remplir_id.php';
     fiche_fraie_visiteur($km, $repas, $nuit, $ETP, $id, $mois, $annee, $m_valide, $n_justif);
 }
 
