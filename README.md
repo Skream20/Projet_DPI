@@ -94,7 +94,10 @@ donovan:
 - régler utf8 html
 -  correction clée étranger FFR_ID
 -  correction dans la base de donner avec "default value = 1 " de FFR_ID
+  
 yann:
 - continuation du php de fiche fraie
+  
 noam:
+
 -création html fiche fraie
