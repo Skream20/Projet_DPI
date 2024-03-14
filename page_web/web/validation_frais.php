@@ -10,30 +10,29 @@
     <div>
         <form method="get" action="">
             <p>
-            
                 <label for="visiteur">Choisir le visiteur:</label> 
                     <select name="Txtvisiteur" id="visiteur">
-                        <option value=""></option>
-                        <?php
-                        // Connexion à la base de données
-                        include 'db_connect.php'; // Assurez-vous que ce fichier contient votre fonction de connexion à la base de données
-                        $cnxBDD = connexion(); // Établir la connexion à la base de données
-                        
-                        // Requête SQL pour récupérer les noms des visiteurs
-                        $query = "SELECT VIS_NOM FROM visiteur"; // Requête pour récupérer les noms des visiteurs
-                        
-                        // Exécution de la requête
-                        $result = $cnxBDD->query($query);
-                        
-                        // Vérification s'il y a des résultats
-                        if ($result && $result->num_rows > 0) {
+                        <optgroup label="Visiteur">
+                            <?php
+                            // Connexion à la base de données
+                            include 'db_connect.php'; // Assurez-vous que ce fichier contient votre fonction de connexion à la base de données
+                            $cnxBDD = connexion(); // Établir la connexion à la base de données
+                            
+                            // Requête SQL pour récupérer les noms des visiteurs
+                            $query = "SELECT * FROM visiteur ORDER BY VIS_NOM, VIS_PRENOM;"; // Requête pour récupérer les noms des visiteurs
+                            
+                            // Exécution de la requête
+                            $result = $cnxBDD->query($query) or die ("Requete invalide : " .$query);
+            
                             // Parcourir les résultats et générer les options du menu déroulant
                             while ($row = $result->fetch_assoc()) {
-                                echo '<option value= " $row['VIS_NOM'] ">' . $row['VIS_NOM'] . '</option>';
+                                echo "<option value="'  .htmlspecialchars($row['VIS_NOM']). '">" . htmlspecialchars($row['VIS_NOM']) . "</option>";
                             }
-                        }
-                        ?>
+                            ?>
+                        </optgroup>
                     </select>
+
+
                     <br>
                 
                 <label for="mois">Mois: </label> 
