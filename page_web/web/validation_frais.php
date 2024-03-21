@@ -23,7 +23,7 @@ $result = $cnxBDD->query($query) or die("Requête invalide : " . $query);
 // Récupérer la valeur de la quantité de frais au forfait
 $row = $result->fetch_assoc();
 $ligne_frais_km = $row['LIG_QTE'];
-echo "test : " . $ligne_frais_km;
+
 
 // Requête SQL pour récupérer la quantité de frais au forfait
 $query = "SELECT LIG_QTE FROM ligne_frais_forfait WHERE FOR_ID = 'km'";
@@ -34,7 +34,7 @@ $result = $cnxBDD->query($query) or die("Requête invalide : " . $query);
 // Récupérer la valeur de la quantité de frais au forfait
 $row = $result->fetch_assoc();
 $ligne_frais_km = $row['LIG_QTE'];
-echo "test : " . $ligne_frais_km;
+
 
 // Requête SQL pour récupérer la quantité de frais au forfait
 $query = "SELECT LIG_QTE FROM ligne_frais_forfait WHERE FOR_ID = 'km'";
@@ -45,7 +45,7 @@ $result = $cnxBDD->query($query) or die("Requête invalide : " . $query);
 // Récupérer la valeur de la quantité de frais au forfait
 $row = $result->fetch_assoc();
 $ligne_frais_nuit = $row['LIG_QTE'];
-echo "test : " . $ligne_frais_km;
+echo "test : " . $ligne_frais_nuit;
 #exit;
 ?>
 
@@ -122,7 +122,8 @@ echo "test : " . $ligne_frais_km;
                     <th>Situation</th>
                 </tr>
                 <tr>
-                    <td><input type="text" name="TxTrepas" id="repas" value="<?php echo $ligne_frais_rep; ?>" disabled="disabled"></td>
+                    <td><input type="text" name="TxTrepas" id="repas" value="<?php echo $ligne_frais_rep; ?>"
+                            disabled="disabled"></td>
                     <td><input type="text" name="TxTnuit" id="nuit" value="<?php echo $ligne_frais_nuit; ?>"></td>
 
                     <td><input type="text" name="TxTetape" id="etape"></td>
