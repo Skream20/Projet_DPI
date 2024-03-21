@@ -122,11 +122,11 @@ echo "test : " . $ligne_frais_nuit;
                     <th>Situation</th>
                 </tr>
                 <tr>
-                    <td><input type="text" name="TxTrepas" id="repas" value="<?php echo $ligne_frais_rep; ?>"
+                     <td><input type="text" name="TxTrepas" id="repas" value="<?php echo $ligne_frais_rep; ?>"
                             disabled="disabled"></td>
-                    <td><input type="text" name="TxTnuit" id="nuit" value="<?php echo $ligne_frais_nuit; ?>"></td>
+                    <td><input type="text" name="TxTnuit" id="nuit" value="<?php echo $ligne_frais_nuitee; ?>"></td>
 
-                    <td><input type="text" name="TxTetape" id="etape"></td>
+                    <td><input type="text" name="TxTetape" id="etape" value="<?php echo $ligne_frais_etape; ?>"></td>
                     <td><input type="text" name="TxTkilometre" id="kilometre" value="<?php echo $ligne_frais_km; ?>">
                     </td>
                     <td>
