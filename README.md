@@ -91,13 +91,27 @@ encore à faire:
 <h3>day 6</h3>
 
 donovan:
+
 - régler utf8 html
--  correction clée étranger FFR_ID
--  correction dans la base de donner avec "default value = 1 " de FFR_ID
-  
+- correction clée étranger FFR_ID
+- correction dans la base de donner avec "default value = 1 " de FFR_ID
+
 yann:
+
 - continuation du php de fiche fraie
-  
+
 noam:
 
 -création html fiche fraie
+
+<h3>day 7</h3>
+
+donovan / yann
+
+- reglement probleme dans validation_frais.php : affichage list de user
+- migration de tout les fichiers et base de données dans le serveur SISR
+- finition de la partit visiteur
+
+noah
+
+- cration fiche frais (html)
