@@ -117,7 +117,7 @@ echo "test : " . $ligne_frais_nuit;
                 <tr>
                     <th><label for="repas">Repas</label></th>
                     <th><label for="nuit">Nuitée</label></th>
-                    <th><label for="etape">Etape</label></th>
+                    <th><label for="etape">Etapee</label></th>
                     <th><label for="kilometre">Km</label></th>
                     <th>Situation</th>
                 </tr>
