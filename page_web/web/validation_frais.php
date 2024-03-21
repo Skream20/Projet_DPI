@@ -1,58 +1,12 @@
 <?php
-include 'db_connect.php'; // Inclure le fichier de connexion à la base de données
-
-$cnxBDD = connexion(); // Établir la connexion à la base de données
-
-// Requête SQL pour récupérer la quantité de frais au forfait
-$query = "SELECT LIG_QTE FROM ligne_frais_forfait WHERE FOR_ID = 'REP'";
-
-// Exécution de la requête
-$result = $cnxBDD->query($query) or die("Requête invalide : " . $query);
-
-// Récupérer la valeur de la quantité de frais au forfait
-$row = $result->fetch_assoc();
-$ligne_frais_rep = $row['LIG_QTE'];
-
-
-// Requête SQL pour récupérer la quantité de frais au forfait
-$query = "SELECT LIG_QTE FROM ligne_frais_forfait WHERE FOR_ID = 'km'";
-
-// Exécution de la requête
-$result = $cnxBDD->query($query) or die("Requête invalide : " . $query);
-
-// Récupérer la valeur de la quantité de frais au forfait
-$row = $result->fetch_assoc();
-$ligne_frais_km = $row['LIG_QTE'];
-
-// Requête SQL pour récupérer la quantité de frais au forfait
-$query = "SELECT LIG_QTE FROM ligne_frais_forfait WHERE FOR_ID = 'NUI'";
-
-// Exécution de la requête
-$result = $cnxBDD->query($query) or die("Requête invalide : " . $query);
-
-// Récupérer la valeur de la quantité de frais au forfait
-$row = $result->fetch_assoc();
-$ligne_frais_nuitee = $row['LIG_QTE'];
-
-// Requête SQL pour récupérer la quantité de frais au forfait
-$query = "SELECT LIG_QTE FROM ligne_frais_forfait WHERE FOR_ID = 'ETP'";
-
-// Exécution de la requête
-$result = $cnxBDD->query($query) or die("Requête invalide : " . $query);
-
-// Récupérer la valeur de la quantité de frais au forfait
-$row = $result->fetch_assoc();
-$ligne_frais_etape = $row['LIG_QTE'];
-
+include 'db_connect.php';
 ?>
 
-
 <!DOCTYPE html>
-<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
-    <title>Validation des frais visiteur</title>
+    <title>validation frais visiteur</title>
     <link rel="stylesheet" href="traitement_frais.css" />
 </head>
 
@@ -66,6 +20,15 @@ $ligne_frais_etape = $row['LIG_QTE'];
                 <select name="Txtvisiteur" id="visiteur">
                     <optgroup label="Visiteur">
                         <?php
+
+                        $cnxBDD = connexion(); // Établir la connexion à la base de données
+
+                        // Requête SQL pour récupérer les noms des visiteurs
+                        $query = "SELECT * FROM visiteur ORDER BY VIS_NOM, VIS_PRENOM;"; // Requête pour récupérer les noms des visiteurs
+
+                        // Exécution de la requête
+                        $result = $cnxBDD->query($query) or die("Requete invalide : " . $query);
+
                         // Parcourir les résultats et générer les options du menu déroulant
                         while ($row = $result->fetch_assoc()) {
                             echo '<option value="' . htmlspecialchars($row['VIS_NOM']) . '">' . htmlspecialchars($row['VIS_NOM']) . '</option>';
@@ -77,8 +40,8 @@ $ligne_frais_etape = $row['LIG_QTE'];
 
                 <br>
 
-                <label for="mois1">Mois: </label>
-                <select name="TxTmois1" id="mois1">
+                <label for="mois">Mois: </label>
+                <select name="TxTmois" id="mois">
                     <option value=""></option>
                     <option value="janvier">Janvier</option>
                     <option value="fevrier">Février</option>
@@ -93,7 +56,7 @@ $ligne_frais_etape = $row['LIG_QTE'];
                     <option value="novembre">Novembre</option>
                     <option value="decembre">Decembre</option>
                 </select>
-                <select name="TxTmois2" id="mois2">
+                <select name="TxTmois" id="mois">
                     <option value=""></option>
                     <option value="janvier">Janvier</option>
                     <option value="fevrier">Février</option>
@@ -120,16 +83,20 @@ $ligne_frais_etape = $row['LIG_QTE'];
                     <th>Situation</th>
                 </tr>
                 <tr>
-                    <td><input type="text" name="TxTrepas" id="repas" value="<?php echo $ligne_frais_rep; ?>"
-                            disabled="disabled"></td>
-                    <td><input type="text" name="TxTnuit" id="nuit" value="<?php echo $ligne_frais_nuitee; ?>"
-                            disabled="disabled"></td>
+                    <td><input type="text" name="TxTrepas" id="repas" value="<?php
 
-                    <td><input type="text" name="TxTetape" id="etape" value="<?php echo $ligne_frais_etape; ?>"
-                            disabled="disabled"></td>
-                    <td><input type="text" name="TxTkilometre" id="kilometre" value="<?php echo $ligne_frais_km; ?>"
-                            disabled="disabled">
-                    </td>
+                                                                                $cnxBDD = connexion(); // Établir la connexion à la base de données
+
+                                                                                // Requête SQL pour récupérer les noms des visiteurs
+                                                                                $query = "SELECT LIG_QTE FROM  ligne_frais_forfait WHERE  FOR_ID = 'km' "; // Requête pour récupérer les noms des visiteurs
+
+                                                                                // Exécution de la requête
+                                                                                $result = $cnxBDD->query($query) or die("Requete invalide : " . $query);
+
+                                                                                ?>" disabled="disabled"></td>
+                    <td><input type="text" name="TxTnuit" id="nuit"></td>
+                    <td><input type="text" name="TxTetape" id="etape"></td>
+                    <td><input type="text" name="TxTkilometre" id="kilometre"></td>
                     <td>
 
                         <input type="radio" name="Txtsituation" id="valide">
@@ -152,5 +119,3 @@ $ligne_frais_etape = $row['LIG_QTE'];
         </form>
     </div>
 </body>
-
-</html>
