@@ -73,3 +73,6 @@ if (isset($_GET['submit'])) {
 
 // Fermer la connexion MYSQL à la fin du script
 $visiteurBD->close();
+
+header('Location: .liste_visite.php');
+die();
