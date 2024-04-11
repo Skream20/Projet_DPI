@@ -3,6 +3,8 @@ include 'db_connect.php';
 
 $cnxBDD = connexion();
 
+
+
 # On récupère les données du formulaire GET
 $ETPt = $GET_["TXTETP"];
 $kmt = $GET_["TXTkilo"];
@@ -12,10 +14,6 @@ $ETPt = $GET_["TxTetape"];
 $mois = $GET_["TxtMois"];
 $id = $_GET["TxTID"];
 $annee = $_GET["TxTAnnee"];
-$m_valide = $_GET["Txtsituation"];
-$m_justi = $_get["justificatif"];
-
-
 #remplire FFR_ID
 function getNextFFR_ID()
 {
@@ -37,10 +35,10 @@ function getNextFFR_ID()
 #calule fiche de fraie
 function calcule_remboursement($kmt, $repast, $nuitt, $ETPt)
 {
-    $km = 0.62*;
-    $ETP = 110*;
-    $nuit = 80*;
-    $repas = 25*;
+    $km = 0.62;
+    $ETP = 110;
+    $nuit = 80;
+    $repas = 25;
     #totale
     $T = $nuit * $nuitt + $repas * $repast + $km * $kmt + $ETP * $ETPt;
 
@@ -58,21 +56,20 @@ function calcule_remboursement($kmt, $repast, $nuitt, $ETPt)
 
 //remplissage de la base de donnée fiche_frais
 #insert dans la BDD
-function fiche_fraie_visiteur($km, $repas, $nuit, $ETP, $id, $mois, $annee, $m_valide, $n_justif)
+function fraie_visiteur($km, $repas, $nuit, $ETP, $id, $mois, $annee)
 {
     calcule_remboursement($km, $repas, $nuit, $ETP);
 
-    $vis_id = "SELECT  VIS_ID from visiteur;";
-    $eta_id = "SELECT ";
     $sql = "INSERT INTO fiche_frais(FFR_ID, VIS_ID, ETA_ID, FFR_ANNEE, FFR_MOIS, FFR_MONTANT_VALIDE, FFR_NB_JUSTIFICATIF, FFR_DATE_MODIF)
-    VALUES ( '$id','$vis_id','$m_valide','$annee','$mois','$T','$n_justif',)";
+    VALUES ( '$id','$annee','$mois')";
 
     // Exécution de la requête
     echo "Sql : " . $sql . "<br />";
 }
 
 if (isset($_GET['BOvalider'])) {
-    fiche_fraie_visiteur($km, $repas, $nuit, $ETP, $id, $mois, $annee, $m_valide, $n_justif);
+    include 'remplir_id.php';
+    fraie_visiteur($km, $repas, $nuit, $ETP, $id, $mois, $annee);
 }
 
 

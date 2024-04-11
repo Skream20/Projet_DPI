@@ -14,31 +14,12 @@ $date_emb = $_GET["TxTembauche"];
 $login = $_GET["TxTlogin"];
 $mdp = $_GET["TxTmdp"];
 
-/*
-$date = horloge();
-
-function horloge()
-{
-    $datejour = new DateTime();
-    $Joursemaine = $datejour->format("l");
-    $joursmois = $datejour->format("d");
-    $mois = $datejour->format("F");
-    $annee = $datejour->format("Y");
-    $heure = $datejour->format("H:i");
-
-    echo "Le $Joursemaine $joursmois $mois $annee à $heure";
-}
-*/
-
-
 #enregistre user
-
-function visiteur($visiteurBD, $id, $nom, $prenom, $adress, $ville, $CP, $date_emb, $login, $mdp, $date)
+function visiteur($visiteurBD, $id, $nom, $prenom, $adress, $ville, $CP, $date_emb, $login, $mdp)
 {
     // Préparation de la requête SQL (ajustez les colonnes et les valeurs en conséquence)
     $sql = "INSERT INTO visiteur(VIS_ID, VIS_PRENOM, VIS_NOM, VIS_ADRESSE, VIS_CP, VIS_VILLE, VIS_DATE_EMBAUCHE) 
-            VALUES ('$id', '$prenom', '$nom', '$adress', '$CP', '$ville', '$date_emb')
-            ";
+            VALUES ('$id', '$prenom', '$nom', '$adress', '$CP', '$ville', '$date_emb')";
     $sql2 = "INSERT INTO USER(VIS_ID, login,password)values('$id', '$login','$mdp')";
 
     echo "Sql : " . $sql . "<br />";
@@ -48,31 +29,20 @@ function visiteur($visiteurBD, $id, $nom, $prenom, $adress, $ville, $CP, $date_e
     $result = $visiteurBD->query($sql);
     $result2 =  $visiteurBD->query($sql2);
 
-    if ($result === TRUE) {
+    if ($result === TRUE && $result2 === TRUE) {
         echo "Enregistrement ajouté avec succès.<br/>";
-        #echo "Voulez vous login?"
-        #if 
-    } else {
-        echo "Erreur lors de l'ajout de l'enregistrement : " . $visiteurBD->error . "<br/>";
-    }
-
-    if ($result2 === TRUE) {
-        echo "Enregistrement ajouté avec succès.";
-        #echo "Voulez vous login?"
-        #if 
+        header('Location: liste_visit.php');
+        exit(); // Ensure script stops execution after redirect
     } else {
         echo "Erreur lors de l'ajout de l'enregistrement : " . $visiteurBD->error . "<br/>";
     }
 }
 
 if (isset($_GET['submit'])) {
-    while (true) {
-        visiteur($visiteurBD, $id, $nom, $prenom, $adress, $ville, $CP, $date_emb, $login, $mdp, $date);
-    }
+    visiteur($visiteurBD, $id, $nom, $prenom, $adress, $ville, $CP, $date_emb, $login, $mdp);
 }
 
 // Fermer la connexion MYSQL à la fin du script
 $visiteurBD->close();
 
-header('Location: .liste_visite.php');
-die();
+?>

@@ -1,0 +1,1 @@
+http://10.0.126.1/adminer/?username=root&db=DPI

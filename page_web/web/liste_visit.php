@@ -5,10 +5,10 @@
 </head>
 <body>
     <p>Liste Visiteur</p>
-    <p>Ajouter</p>
+    <a href="Visiteur.html" > Ajouter </a>
 
     <table>
-        <tr class="entete">
+        <tr>
             <td>Nom</td>
             <td>Prénom</td>
             <td>Date d'embauche</td>
@@ -30,10 +30,18 @@
                 <td> <?php echo htmlspecialchars($row['VIS_NOM']); ?></td>
                 <td> <?php echo htmlspecialchars($row['VIS_PRENOM']); ?></td>
                 <td> <?php echo htmlspecialchars($row['VIS_DATE_EMBAUCHE']); ?></td>
+                <td>
+                    <form action="supprimer_visiteur.php" method="get">
+                        <input type="hidden" name="id" value="<?php echo $row['VIS_ID']; ?>">
+                        <button type="submit" name="supprimer"><i class="fa-solid fa-trash"></i></button>
+                    </form>
+                </td>
             </tr>
             <?php
         }
+        $visiteurBD->close();
         ?>
+
     </table>
 </body>
 </html>
