@@ -31,7 +31,7 @@ $mdp = $_GET["TxTmdp"];
     <br />
   </div>
   <div id="questionnaire">
-    <form method="get" action="formulaire_visiteur.php">
+    <form method="get" action="visiteur_update.php">
       <p>
         <code>
           <label for="identifiant">Identifiant: </label>
