@@ -1,79 +1,65 @@
-<?php
-include 'db_connect.php'; // Include the database connection file
-
-// Fetching data from the database
-$query = "SELECT FROM visiteur where VIS_ID = '$id';"; // Select all columns from the 'visiteur' table
-$result = $cnxBDD->query($query) or die("Invalid query: " . $query); // Execute the query
-
-// Fetch the result and assign it to variables
-$row = $result->fetch_assoc();
-$id = $row['VIS_ID'];
-$name = $row['VIS_NOM'];
-$surname = $row['VIS_PRENOM'];
-$adr = $row['VIS_ADRESSE'];
-$city = $row['VIS_VILLE'];
-$CP = $row['VIS_CP'];
-$embauche = $row['VIS_DATE_EMBAUCHE'];
-$login = $_GET["TxTlogin"];
-$mdp = $_GET["TxTmdp"];
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <link rel="stylesheet" href="index.css" />
-  <title>Formulaire Visiteur</title>
+  <title>Modification Visiteur</title>
 </head>
 <body>
-  <div id="titre">
-    <h1>VISITEUR</h1>
-    <br />
-  </div>
-  <div id="questionnaire">
-    <form method="get" action="visiteur_update.php">
-      <p>
-        <code>
-          <label for="identifiant">Identifiant: </label>
-          <input type="text" name="TxTID" id="ID" value="<?php echo $id;?>" />
-          <br />
+    <?php
+    include "db_connect.php";
+    
+    $cnxBDD = connexion();
 
-          <label for="Nom">Nom: </label>
-          <input type="text" name="TxTNom" id="nom" value="<?php echo $name;?>" />
-          <br />
+    $id = $_GET['id'];
+    
+    $sql = "SELECT visiteur.*, login , password
+            FROM visiteur
+            INNER JOIN users ON visiteur.VIS_ID = USER.VIS_ID
+            WHERE visiteur.VIS_ID = '$id'";
+    $result = $cnxBDD->query($sql) or die("Requête invalide : " . $sql);
 
-          <label for="prenom">Prenom: </label>
-          <input type="text" name="TxTprenom" id="prenom" value="<?php echo $surname;?>" />
-          <br />
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
 
-          <label for="adresse">Adresse: </label>
-          <input type="text" name="TxTadresse" id="adresse" value="<?php echo $adr;?>" />
-          <br />
+        $nom = htmlspecialchars($row['VIS_NOM']);
+        $prenom = htmlspecialchars($row['VIS_PRENOM']);
+        $adresse = htmlspecialchars($row['VIS_ADRESSE']);
+        $ville = htmlspecialchars($row['VIS_VILLE']);
+        $cp = htmlspecialchars($row['VIS_CP']);
+        $dateEmbauche = date_format(new DateTime($row['VIS_DATE_EMBAUCHE']), 'Y-m-d');
+        $login = htmlspecialchars($row['login']);
+        $mdp = htmlspecialchars($row['password']);
 
-          <label for="ville">Ville: </label>
-          <input type="text" name="TxTville" id="ville" value="<?php echo $city;?>" />
-          <br />
+    }
+    ?>
 
-          <label for="cp">CP: </label>
-          <input type="text" name="TxTcp" id="cp" value="<?php echo $CP;?>" />
-          <br />
-
-          <label for="embauche">Date embauche: </label>
-          <input type="text" name="TxTembauche" id="embauche" value="<?php echo $embauche;?>" />
-          <br />
-
-          <label for="login">Login: </label>
-          <input type="text" name="TxTlogin" id="login" value="<?php echo $login;?>" />
-          <br />
-
-          <label for="mdp">Mdp: </label>
-          <input type="password" name="TxTmdp" id="mdp" value="<?php echo $mdp;?>" />
-          <br />
-
-          <input type="submit" value="Envoyer le formulaire" name="submit" />
-        </code>
-      </p>
+    <div class="Visiteur">
+        <form action="modifierEtudiant.php" method="post">
+            <h1>MODIFIER VISITEUR</h1>
+    </div>
+        <div class="formulaire">
+            <!-- Utilisez les variables PHP pour pré-remplir les champs -->
+            <label for="TabloIdentifiant">Identifiant : </label>
+            <input type="text" id="TabloIdentifiant" name="Identifiant" value="<?php echo isset($id) ? $idUtilisateur : ''; ?>" readonly/> <br>
+            <label for="TabloNomFamille">Nom : </label> 
+            <input type="text" id="TabloNomFamille" name="Nom" value="<?php echo isset($nom) ? $nom : ''; ?>" /> <br>   
+            <label for="TabloPrenom">Prenom : </label> 
+            <input type="text" id="TabloPrenom" name="Prenom" value="<?php echo isset($prenom) ? $prenom : ''; ?>" /> <br>
+            <label for="TabloAdresse">Adresse : </label> 
+            <input type="text" id="TabloAdresse" name="Adresse" value="<?php echo isset($adresse) ? $adresse : ''; ?>" /> <br>
+            <label for="TabloVille">Ville : </label> 
+            <input type="text" id="TabloVille" name="Ville" value="<?php echo isset($ville) ? $ville : ''; ?>" /> <br>
+            <label for="TabloCP">CP : </label>
+            <input type="text" id="TabloCP" name="CP" value="<?php echo isset($cp) ? $cp : ''; ?>" /> <br>
+            <label for="TabloEmbauche">Date embauche : </label> 
+            <input type="text" id="TabloEmbauche" name="Embauche" value="<?php echo isset($dateEmbauche) ? $dateEmbauche : ''; ?>" /> <br>
+            <label for="TabloLogin">Login : </label> 
+            <input type="text" id="TabloLogin" name="Login" value="<?php echo isset($login) ? $login : ''; ?>" /> <br>
+            <label for="TabloMDP">mdp : </label> 
+            <input type="text" id="TabloMDP" name="MDP" value="<?php echo isset($mdp) ? $mdp : ''; ?>" />
+            <input type="submit" id="valider" name="BOvalider" value="VALIDER"/><br>
+        </div>
     </form>
-  </div>
 </body>
 </html>
