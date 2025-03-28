@@ -3,8 +3,8 @@ include 'db_connect.php';
 
 $cnxBDD = connexion();
 
-$mois = echo date('m');
-$anne = echo date('Y');
+$mois = date('m');
+$anne = date('Y');
 
 $km = $_GET['TxTKm'];
 $repas = $_GET['TxTRepas'];
@@ -48,3 +48,4 @@ function rid($km, $repas, $nuit, $etape)
 }
 
 rid($km, $repas, $nuit, $etape);
+

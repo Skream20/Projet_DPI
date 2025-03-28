@@ -96,3 +96,8 @@ CREATE TABLE ligne_frais_forfait (
     FOREIGN KEY (FFR_ID) REFERENCES fiche_frais(FFR_ID),
     FOREIGN KEY (FOR_ID) REFERENCES frais_forfait(FOR_ID)
 );
+-- create user
+INSERT INTO user (U_login, U_password, dteConnexion, role, VIS_ID) VALUES
+('admin', 'password123', 'now()', 'admin', 'AD'),
+('gestionnaire', 'password123', 'now()', 'gestionnaire', 'GE'),
+('comptable', 'password123', 'now()', 'comptable', 'CE');

@@ -11,14 +11,15 @@
     
     $cnxBDD = connexion();
 
-    $id = $_GET['id'];
-    
-    $sql = "SELECT visiteur.*, login , password
+    $id = isset($_GET['id']) ? $_GET['id'] : null;
+    if (!$id) {
+    $sql = "SELECT visiteur.*, U_login AS login, U_password AS password
             FROM visiteur
-            INNER JOIN users ON visiteur.VIS_ID = USER.VIS_ID
+            INNER JOIN user ON visiteur.VIS_ID = user.VIS_ID
             WHERE visiteur.VIS_ID = '$id'";
     $result = $cnxBDD->query($sql) or die("Requête invalide : " . $sql);
-
+    }
+    
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
 
@@ -63,3 +64,4 @@
     </form>
 </body>
 </html>
+

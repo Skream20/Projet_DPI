@@ -17,10 +17,19 @@ $mdp = $_GET["TxTmdp"];
 #enregistre user
 function visiteur($visiteurBD, $id, $nom, $prenom, $adress, $ville, $CP, $date_emb, $login, $mdp)
 {
+    // Vérification si VIS_ID existe déjà
+    $checkSql = "SELECT VIS_ID FROM visiteur WHERE VIS_ID = '$id'";
+    $checkResult = $visiteurBD->query($checkSql);
+
+    if ($checkResult->num_rows > 0) {
+        echo "Erreur : L'ID du visiteur existe déjà.<br/>";
+        return;
+    }
+
     // Préparation de la requête SQL (ajustez les colonnes et les valeurs en conséquence)
     $sql = "INSERT INTO visiteur(VIS_ID, VIS_PRENOM, VIS_NOM, VIS_ADRESSE, VIS_CP, VIS_VILLE, VIS_DATE_EMBAUCHE) 
             VALUES ('$id', '$prenom', '$nom', '$adress', '$CP', '$ville', '$date_emb')";
-    $sql2 = "INSERT INTO USER(VIS_ID, login,password)values('$id', '$login','$mdp')";
+    $sql2 = "INSERT INTO USER(VIS_ID, login, password) VALUES ('$id', '$login', '$mdp')";
 
     echo "Sql : " . $sql . "<br />";
     echo "sql :" . $sql2 . "<br/>";
@@ -46,3 +55,4 @@ if (isset($_GET['submit'])) {
 $visiteurBD->close();
 
 ?>
+
