@@ -151,3 +151,15 @@
 - **Création du fichier `fiche_frais.html`** : Ajout d'une nouvelle page pour la gestion des fiches de frais.
 - **Correction des problèmes d'encodage UTF-8** : Résolution des erreurs d'affichage dans les fichiers HTML.
 - **Mise à jour des relations dans la base de données** : Refonte des clés étrangères pour assurer l'intégrité des données.
+
+### Dernières modifications réalisées
+
+- **Ajout de commentaires dans le code PHP** : Documentation des fonctions pour une meilleure lisibilité.
+- **Optimisation des requêtes SQL** : Réduction du temps d'exécution pour les opérations sur la base de données.
+- **Refactorisation du fichier `traitement_fraie.php`** : Simplification de la logique pour une meilleure maintenance.
+- **Mise à jour des dépendances** : Installation des dernières versions des bibliothèques utilisées.
+- **Correction de bugs mineurs** : Résolution de problèmes signalés par les utilisateurs.
+- **Mise en place d'un système de logs** : Ajout de journaux pour suivre les erreurs et les événements importants.
+- **Nettoyage du code** : Suppression des fichiers inutilisés et des lignes de code obsolètes.
+- **Amélioration de la sécurité** : Validation des entrées utilisateur pour prévenir les injections SQL.
+
