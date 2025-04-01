@@ -5,152 +5,143 @@
 - **PHP**
 - **HTML / CSS**
 - **SQL**
+- **JS**
 
 ## Objectif
 
 // À indiquer plus tard //
 
 ---
+## Structure du site web
 
-## Chronologie du projet
-
-### Jour 1
-
-**Donovan :**
-
-- Création des pages HTML :
-  - [Visiteur](https://github.com/Skream20/Projet_DPI/blob/main/page_web/web/Visiteur.html)
-  - [Validation de frais](https://github.com/Skream20/Projet_DPI/blob/main/page_web/web/validation_frais.html)
-- Création du CSS :
-  - [Index CSS](https://github.com/Skream20/Projet_DPI/blob/main/page_web/web/index.css)
-
-**Yann :**
-
-- Liaison des fichiers PHP aux formulaires.
-- Création des fichiers de traitement des données :
-  - Récupération des données des formulaires et envoi dans la base de données.
-  - Traitement des données des formulaires :
-    - [Traitement des frais](https://github.com/Skream20/Projet_DPI/blob/main/page_web/web/traitement_fraie.php)
-    - [Traitement des visiteurs](https://github.com/Skream20/Projet_DPI/blob/main/page_web/web/formulaire_visiteur.php)
-
-**Antoine :**
-
-- Installation de micro-serveurs sur les postes.
-- Flash d'une clé bootable en Legacy avec Windows Server 2022.
-- Installation de Windows Server 2022 :
-  - Installation des services AD DS, Hyper-V pour les VMs et DNS.
-  - Création d'un dossier et d'un document SISR : [Lien vers le document](https://estran.sharepoint.com/:w:/r/sites/DigitalPulseInnovation/_layouts/15/doc2.aspx?action=edit&sourcedoc=%7B40aa7ea0-d7e7-40cf-9547-585a7328d33d%7D&wdOrigin=TEAMS-WEB.teamsSdk.openFilePreview&wdExp=TEAMS-CONTROL&web=1)
+Le site web est organisé en plusieurs fichiers et dossiers, chacun ayant un rôle spécifique dans le fonctionnement global de l'application. Voici une description détaillée de chaque composant :
 
 ---
 
-### Jour 2
+### Fichiers principaux
 
-**Antoine :**
+#### `index.php`
+- **Description** : Page principale du site web qui gère la connexion des utilisateurs.
+- **Fonctionnalités** :
+    - Permet aux utilisateurs de se connecter en saisissant leur nom d'utilisateur et mot de passe.
+    - Affiche des outils spécifiques en fonction du rôle de l'utilisateur (admin, comptable, gestionnaire).
+    - Gère la session utilisateur et propose une option de déconnexion.
+- **Dépendances** :
+    - `fonction/db_connect.php` pour la connexion à la base de données.
+    - `fonction/logout.php` pour la déconnexion.
 
-- Installation des serveurs Front-end et Back-end (Debian).
-- Installation des mises à jour.
+#### `Gestion_frais.php`
+- **Description** : Page permettant la saisie des frais au forfait.
+- **Fonctionnalités** :
+    - Permet de saisir les frais de repas, nuitées, étapes et kilomètres.
+    - Envoie les données saisies à `fonction/remplir_id.php` pour traitement.
+- **Dépendances** :
+    - `css/Gestion_frais.css` pour le style.
 
-**Donovan :**
+#### `liste_visit.php`
+- **Description** : Page affichant la liste des visiteurs.
+- **Fonctionnalités** :
+    - Affiche les informations des visiteurs (nom, prénom, date d'embauche).
+    - Propose des options pour supprimer ou modifier un visiteur.
+- **Dépendances** :
+    - `fonction/db_connect.php` pour récupérer les données des visiteurs.
+    - `fonction/supprimer_visiteur.php` pour la suppression des visiteurs.
 
-- Création et modification des pages HTML/CSS.
+#### `Visiteur.html`
+- **Description** : Formulaire pour ajouter un nouveau visiteur.
+- **Fonctionnalités** :
+    - Permet de saisir les informations personnelles d'un visiteur (nom, prénom, adresse, etc.).
+    - Envoie les données saisies à `fonction/formulaire_visiteur.php` pour traitement.
+- **Dépendances** :
+    - `css/index.css` pour le style.
 
-**Yann :**
+#### `validation_frais.html`
+- **Description** : Page permettant de valider les frais des visiteurs.
+- **Fonctionnalités** :
+    - Permet de sélectionner un visiteur et de visualiser ses frais au forfait.
+    - Propose des options pour valider ou invalider les frais.
+- **Dépendances** :
+    - `css/traitement_frais.css` pour le style.
+    - `fonction/validation_frais.php` pour le traitement des données.
 
-- Développement en PHP.
-- Résolution d'un problème lié à `VIS_ID` dans le code PHP.
+#### `Afiche_frais.php`
+- **Description** : Page affichant la liste des fiches de frais.
+- **Fonctionnalités** :
+    - Affiche les fiches de frais avec leur total et leur situation.
+    - Permet de supprimer une fiche de frais.
+- **Dépendances** :
+    - `fonction/db_connect.php` pour la connexion à la base de données.
 
----
+#### `Cfiche_frais.php`
+- **Description** : Page permettant de créer une nouvelle fiche de frais.
+- **Fonctionnalités** :
+    - Permet de sélectionner un visiteur et de saisir les frais au forfait.
+    - Insère les données dans la base de données.
+- **Dépendances** :
+    - `fonction/db_connect.php` pour la connexion à la base de données.
 
-### Jour 3
-
-**Yann / Donovan :**
-
-- Résolution du problème dans le code PHP :
-  - [Formulaire visiteur](https://github.com/Skream20/Projet_DPI/blob/main/page_web/web/formulaire_visiteur.php)
-  - [Remplir étudiant](https://github.com/Skream20/Projet_DPI/blob/main/page_web/web/remplirEtudiant.php)
-
-**Antoine :**
-
-- Documentation des installations des OS.
-- Installation de MariaDB.
-- Création de IIS.
-
----
-
-### Jour 4
-
-**Yann / Donovan :**
-
-- Début de la programmation de `traitement_fraie.php`.
-
-**Noan :**
-
-- Refonte de la clé étrangère `FFR_ID` pour la table `ligne_frais_forfait`.
-- Finalisation de la table `frais_forfait` (données déjà insérées).
-- Planification des prochaines étapes :
-  - Création de la table `fiche_frais`.
-  - Finalisation des pages HTML/CSS pour une meilleure mise en page.
-  - Finalisation du PHP pour rediriger les formulaires validés vers une nouvelle page.
-
----
-
-### Jour 5
-
-**Yann / Donovan :**
-
-- Correction des bugs liés à `FFR_ID` :
-  - Création de `remplir_id`.
-  - [Continuer la programmation de remplir_id.php](https://github.com/Skream20/Projet_DPI/blob/main/page_web/web/remplir_id.php).
-  - [Continuer la programmation de traitement_fraie.php](https://github.com/Skream20/Projet_DPI/blob/main/page_web/web/traitement_fraie.php).
-
----
-
-### Jour 6
-
-**Donovan :**
-
-- Résolution des problèmes d'encodage UTF-8 dans les fichiers HTML.
-- Correction de la clé étrangère `FFR_ID`.
-- Mise à jour de la base de données avec une valeur par défaut `1` pour `FFR_ID`.
-
-**Yann :**
-
-- Poursuite du développement PHP pour la gestion des fiches de frais.
-
-**Noan :**
-
-- Création de la page HTML pour les fiches de frais.
+#### `visiteur_edit.php`
+- **Description** : Page permettant de modifier les informations d'un visiteur.
+- **Fonctionnalités** :
+    - Pré-remplit les champs avec les informations actuelles du visiteur.
+    - Envoie les modifications à `fonction/visiteur_update.php` pour mise à jour.
+- **Dépendances** :
+    - `fonction/db_connect.php` pour récupérer les données du visiteur.
 
 ---
 
-### Jour 7
+### Dossiers
 
-**Donovan / Yann :**
+#### `css/`
+- Contient les fichiers CSS pour le style des différentes pages.
+    - `connexion.css` : Style pour la page de connexion.
+    - `Gestion_frais.css` : Style pour la page de gestion des frais.
+    - `index.css` : Style pour la page d'accueil et le formulaire visiteur.
+    - `Liste_visit.css` : Style pour la liste des visiteurs.
+    - `traitement_frais.css` : Style pour la validation des frais.
 
-- Résolution des problèmes dans `validation_frais.php` :
-  - Correction de l'affichage de la liste des utilisateurs.
-- Migration des fichiers et de la base de données vers le serveur SISR.
-- Finalisation de la partie visiteur.
+#### `fonction/`
+- Contient les fichiers PHP pour les fonctionnalités backend.
+    - `db_connect.php` : Gère la connexion à la base de données.
+    - `formulaire_visiteur.php` : Traite les données du formulaire visiteur et les insère dans la base de données.
+    - `logout.php` : Gère la déconnexion des utilisateurs.
+    - `remplir_id.php` : Insère les frais au forfait dans la base de données.
+    - `supprimer_visiteur.php` : Supprime un visiteur de la base de données.
+    - `traitement_fraie.php` : Calcule et insère les frais dans la base de données.
+    - `validation_frais.php` : Valide ou invalide les frais des visiteurs.
+    - `visiteur_update.php` : Met à jour les informations d'un visiteur.
 
-**Noah :**
+#### `img/`
+- Contient les images utilisées sur le site.
+    - `gsb.png` : Logo de l'application.
 
-- Création de la page HTML pour les fiches de frais.
+#### `remplirEtudiant/`
+- Contient des fichiers liés à la base de données et des données d'exemple.
+    - `creBDEtudiant.sql` : Script SQL pour créer la base de données.
+    - `garcon.txt` : Liste de prénoms masculins.
+    - `generateur.docx` : Document Word (contenu non spécifié).
+    - `mesFonctionsGenerales.php` : Fichier PHP (contenu non spécifié).
+    - `nom.txt` : Liste de noms (contenu non spécifié).
 
 ---
-### modif pour E4
 
-- **Ajout de commentaires dans le code PHP** : Documentation des fonctions pour une meilleure lisibilité.
-- **Optimisation des requêtes SQL** : Réduction du temps d'exécution pour les opérations sur la base de données.
-- **Refactorisation du fichier `traitement_fraie.php`** : Simplification de la logique pour une meilleure maintenance.
-- **Mise à jour des dépendances** : Installation des dernières versions des bibliothèques utilisées.
-- **Correction de bugs mineurs** : Résolution de problèmes signalés par les utilisateurs.
-- **Mise en place d'un système de logs** : Ajout de journaux pour suivre les erreurs et les événements importants.
-- **Nettoyage du code** : Suppression des fichiers inutilisés et des lignes de code obsolètes.
-- **Amélioration de la sécurité** : Validation des entrées utilisateur pour prévenir les injections SQL.
+### Fonctionnalités principales
 
-### last update
+1. **Gestion des utilisateurs** :
+     - Connexion et déconnexion.
+     - Gestion des rôles (admin, comptable, gestionnaire).
 
+2. **Gestion des visiteurs** :
+     - Ajout, modification et suppression des visiteurs.
+     - Affichage de la liste des visiteurs.
 
+3. **Gestion des frais** :
+     - Saisie des frais au forfait.
+     - Validation des frais par visiteur.
+     - Affichage des fiches de frais.
 
+4. **Base de données** :
+     - Connexion à une base de données MySQL.
+     - Tables principales : `visiteur`, `fiche_frais`, `ligne_frais_forfait`, `frais_forfait`, `etat`, `USER`.
 
-
+---
