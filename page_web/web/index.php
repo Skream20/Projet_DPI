@@ -7,40 +7,8 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="connexion.css">
     <style>
-        /* Styles for the login page */
-        .login-container {
-            width: 300px;
-            margin: 0 auto;
-            margin-top: 100px;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .form-group {
-            margin-bottom: 10px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        .form-group input {
-            width: 100%;
-            padding: 5px;
-            font-size: 16px;
-        }
-        .form-group button {
-            padding: 5px 10px;
-            font-size: 16px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .admin-link, .comptable-link, .gestionnaire-link {
-            display: none;
-        }
     </style>
 </head>
 <body>
@@ -109,7 +77,7 @@ session_start();
     </ul>
     
     <script>
-    // Display tools section based on the user's role
+ 
     document.addEventListener('DOMContentLoaded', function () {
         <?php if (isset($_SESSION['role'])): ?>
             const role = <?= json_encode($_SESSION['role']); ?>;

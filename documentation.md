@@ -123,15 +123,6 @@ Visiteur.html
 
 ---
 
-## Améliorations Futures
-
-- Ajouter une gestion des erreurs plus robuste.
-- Implémenter un système de pagination pour la liste des visiteurs.
-- Ajouter des tests unitaires pour les fonctions PHP.
-- Améliorer l'interface utilisateur avec des frameworks modernes comme Bootstrap.
-
----
-
 ## Auteurs
 
 - **Donovan** : Création des pages HTML/CSS et intégration des formulaires.
