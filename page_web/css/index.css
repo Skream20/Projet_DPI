@@ -1,0 +1,23 @@
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif, "sans-serif";
+    color: #5587f3;
+    }
+
+#titre {
+    color:rgb(68, 68, 124);
+    padding-left: 175px;
+    padding-top: 25px;
+    background-color: rgb(136, 192, 245);
+}
+
+#questionnaire{
+    padding-left: 100px;
+    font-size: x-large;
+}
+
+label
+{
+	display: block;
+	width: 200px;
+	float: left;
+}

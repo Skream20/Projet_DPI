@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="Gestion_frais.css"/>
+    <link rel="stylesheet" href="css/Gestion_frais.css"/>
 </head>
 <body>
     <div id="hautpage">
