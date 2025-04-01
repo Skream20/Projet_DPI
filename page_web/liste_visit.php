@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <meta charset="UTF-8">
+
+    <title>Liste des Visiteurs</title>
+<head>
     <!-- Votre en-tête ici -->
 </head>
 <body>
@@ -17,9 +21,10 @@
         </tr>
 
         <?php
-        include 'fonction/db_connect.php'; // Assurez-vous que le chemin vers db_connect.php est correct
+        include 'fonction/db_connect.php'; 
 
         $cnxBDD = connexion();
+        $visiteurBD = $cnxBDD; 
 
         $sql = "SELECT * FROM visiteur ORDER BY VIS_NOM, VIS_PRENOM;";
         $result = $cnxBDD->query($sql) or die("Requête invalide : " . $sql);
@@ -31,12 +36,17 @@
                 <td> <?php echo htmlspecialchars($row['VIS_PRENOM']); ?></td>
                 <td> <?php echo htmlspecialchars($row['VIS_DATE_EMBAUCHE']); ?></td>
                 <td>
-                    <form action="supprimer_visiteur.php" method="get">
+                    <form action="fonction/supprimer_visiteur.php" method="get">
                         <input type="hidden" name="id" value="<?php echo $row['VIS_ID']; ?>">
                         <button type="submit" name="supprimer"><i class="fa-solid fa-trash"></i></button>
                     </form>
                 </td>
-            </tr>
+                <td>
+                    <form action="visiteur_edit.php" method="get">
+                        <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['VIS_ID']); ?>">
+                        <button type="submit" name="modifier"><i class="fa-solid fa-edit"></i></button>
+                    </form>
+                </td>
             <?php
         }
         $visiteurBD->close();

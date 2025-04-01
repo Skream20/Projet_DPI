@@ -2,3 +2,64 @@ html {
     scroll-behavior: smooth;
     
 }
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(240, 240, 240);
+    margin: 0;
+    padding: 0;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table th, table td {
+    border: 1px solid rgb(200, 200, 200);
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background-color: rgb(130, 193, 252);
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: rgb(245, 245, 245);
+}
+
+table tr:hover {
+    background-color: rgb(220, 230, 250);
+}
+
+a {
+    display: inline-block;
+    margin: 20px auto;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(130, 193, 252);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+a:hover {
+    background-color: rgb(100, 160, 230);
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: rgb(200, 0, 0);
+    font-size: 16px;
+}
+
+button:hover {
+    color: rgb(255, 0, 0);
+}

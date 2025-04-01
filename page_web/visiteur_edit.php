@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="css/index.css" />
   <title>Modification Visiteur</title>
 </head>
 <body>
@@ -64,4 +64,8 @@
     </form>
 </body>
 </html>
+
+
+
+
 
