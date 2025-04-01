@@ -31,7 +31,7 @@ session_start();
             </form>
         <?php else: ?>
             <p style="color: green;"><?= htmlspecialchars($_SESSION['role']) ?></p>
-            <form action="logout.php" method="POST">
+            <form action="fonction/logout.php" method="POST">
             <button type="submit">Logout</button>
             </form>
         <?php endif; ?>
@@ -69,7 +69,10 @@ session_start();
     </div>
 
     <!-- Tools Section -->
-    <h1>Tools</h1>
+    <?php if (isset($_SESSION['role'])): ?>
+        <h1>Tools</h1>
+    <?php endif; ?>
+
     <ul>
         <li class="admin-link"><a href="liste_visit.php">Liste des Visiteurs</a></li>
         <li class="admin-link gestionnaire-link"><a href="visiteur.html">Formulaire inscription des Visiteurs</a></li>

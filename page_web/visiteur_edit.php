@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php
-    include "db_connect.php";
+    include "fonction/db_connect.php";
     
     $cnxBDD = connexion();
 
@@ -36,7 +36,7 @@
     ?>
 
     <div class="Visiteur">
-        <form action="modifierEtudiant.php" method="post">
+        <form action="fonction/visiteur_update.php" method="post">
             <h1>MODIFIER VISITEUR</h1>
     </div>
         <div class="formulaire">

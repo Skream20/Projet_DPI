@@ -17,7 +17,7 @@
         </tr>
 
         <?php
-        include 'db_connect.php'; // Assurez-vous que le chemin vers db_connect.php est correct
+        include 'fonction/db_connect.php'; // Assurez-vous que le chemin vers db_connect.php est correct
 
         $cnxBDD = connexion();
 

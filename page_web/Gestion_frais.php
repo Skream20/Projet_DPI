@@ -7,7 +7,7 @@
 <body>
     <div id="hautpage">
         <h1>Gestion des Frais</h1>
-        <img id="image" src="gsb.png">
+        <img id="image" src="img/gsb.png">
     </div>
     <br>
     
@@ -16,7 +16,7 @@
         <br>
         <p>
             
-            <form method="get" action="remplir_id.php">
+            <form method="get" action="fonction/remplir_id.php">
                 <label for="engagement">PÉRIODE D'ENGAGEMENT:</label> 
                 <label id="moisform" for="mois">Mois (2 chiffres):</label>
                 <input size="7" type="text" name="TxTMois" id="mois" value="<?php echo date('m'); ?>">
