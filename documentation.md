@@ -52,12 +52,21 @@ Le site web est organisé en plusieurs fichiers et dossiers, chacun ayant un rô
     - `css/traitement_frais.css` pour le style.
     - `fonction/validation_frais.php` pour le traitement des données.
 
-#### `fiche_frais.html`
-- **Description** : Page affichant un tableau des frais.
+#### `Afiche_frais.php`
+- **Description** : Page affichant la liste des fiches de frais.
 - **Fonctionnalités** :
-    - Affiche les frais de repas, nuitées, étapes, kilomètres et leur situation.
+    - Affiche les fiches de frais avec leur total et leur situation.
+    - Permet de supprimer une fiche de frais.
 - **Dépendances** :
-    - `css/Gestion_frais.css` pour le style.
+    - `fonction/db_connect.php` pour la connexion à la base de données.
+
+#### `Cfiche_frais.php`
+- **Description** : Page permettant de créer une nouvelle fiche de frais.
+- **Fonctionnalités** :
+    - Permet de sélectionner un visiteur et de saisir les frais au forfait.
+    - Insère les données dans la base de données.
+- **Dépendances** :
+    - `fonction/db_connect.php` pour la connexion à la base de données.
 
 #### `visiteur_edit.php`
 - **Description** : Page permettant de modifier les informations d'un visiteur.
@@ -124,4 +133,3 @@ Le site web est organisé en plusieurs fichiers et dossiers, chacun ayant un rô
      - Tables principales : `visiteur`, `fiche_frais`, `ligne_frais_forfait`, `frais_forfait`, `etat`, `USER`.
 
 ---
-
