@@ -137,22 +137,7 @@
 - Création de la page HTML pour les fiches de frais.
 
 ---
-
-## Dernières modifications
-
-- **Modification du fichier `validation_frais.php`** : Correction de l'affichage de la liste des utilisateurs.
-- **Mise à jour de la base de données** : Ajout de la valeur par défaut `1` pour la clé étrangère `FFR_ID`.
-- **Correction dans `traitement_fraie.php`** : Résolution de bugs liés à la gestion des frais.
-- **Création du fichier `remplir_id.php`** : Ajout de la logique pour gérer les identifiants liés à `FFR_ID`.
-- **Migration des fichiers et de la base de données** : Transfert complet vers le serveur SISR.
-- **Amélioration de la mise en page HTML/CSS** : Ajustements pour une meilleure présentation des formulaires.
-- **Ajout de la documentation** : Mise à jour des étapes d'installation et des configurations des serveurs.
-- **Finalisation de la partie visiteur** : Complétion des fonctionnalités liées aux visiteurs.
-- **Création du fichier `fiche_frais.html`** : Ajout d'une nouvelle page pour la gestion des fiches de frais.
-- **Correction des problèmes d'encodage UTF-8** : Résolution des erreurs d'affichage dans les fichiers HTML.
-- **Mise à jour des relations dans la base de données** : Refonte des clés étrangères pour assurer l'intégrité des données.
-
-### Dernières modifications réalisées
+### modif pour E4
 
 - **Ajout de commentaires dans le code PHP** : Documentation des fonctions pour une meilleure lisibilité.
 - **Optimisation des requêtes SQL** : Réduction du temps d'exécution pour les opérations sur la base de données.
@@ -162,4 +147,8 @@
 - **Mise en place d'un système de logs** : Ajout de journaux pour suivre les erreurs et les événements importants.
 - **Nettoyage du code** : Suppression des fichiers inutilisés et des lignes de code obsolètes.
 - **Amélioration de la sécurité** : Validation des entrées utilisateur pour prévenir les injections SQL.
+
+### last update
+
+
 
