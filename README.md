@@ -1,4 +1,4 @@
-# Projet_DPI
+# Documentation du Projet_DPI
 
 ## Langages utilisés
 
@@ -9,12 +9,13 @@
 
 ## Objectif
 
-// À indiquer plus tard //
+le site permet à GSB de gérer efficacement les frais professionnels de ses visiteurs médicaux. L'application vise à simplifier la saisie, la validation et le suivi des frais.
 
 ---
+
 ## Structure du site web
 
-Le site web est organisé en plusieurs fichiers et dossiers, chacun ayant un rôle spécifique dans le fonctionnement global de l'application. Voici une description détaillée de chaque composant :
+Le site web est organisé en plusieurs fichiers et dossiers, chacun ayant un rôle spécifique dans le fonctionnement global de l'application.
 
 ---
 
@@ -119,9 +120,8 @@ Le site web est organisé en plusieurs fichiers et dossiers, chacun ayant un rô
 - Contient des fichiers liés à la base de données et des données d'exemple.
     - `creBDEtudiant.sql` : Script SQL pour créer la base de données.
     - `garcon.txt` : Liste de prénoms masculins.
-    - `generateur.docx` : Document Word (contenu non spécifié).
-    - `mesFonctionsGenerales.php` : Fichier PHP (contenu non spécifié).
-    - `nom.txt` : Liste de noms (contenu non spécifié).
+    - `nom.txt` : Liste de noms.
+    - `mesFonctionsGenerales.php` : Fichier PHP contenant des fonctions générales.
 
 ---
 
@@ -142,6 +142,6 @@ Le site web est organisé en plusieurs fichiers et dossiers, chacun ayant un rô
 
 4. **Base de données** :
      - Connexion à une base de données MySQL.
-     - Tables principales : `visiteur`, `fiche_frais`, `ligne_frais_forfait`, `frais_forfait`, `etat`, `USER`.
+     - Tables principales : `visiteur`, `fiche_frais`, `ligne_frais_forfait`, `frais_forfait`, `etat`, `user`.
 
 ---

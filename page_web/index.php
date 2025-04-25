@@ -79,6 +79,8 @@ session_start(); // Démarre une session PHP pour gérer les données utilisateu
         <li class="admin-link"><a href="liste_visit.php">Liste des Visiteurs</a></li>
         <li class="admin-link gestionnaire-link"><a href="visiteur.html">Formulaire inscription des Visiteurs</a></li>
         <li class="admin-link comptable-link"><a href="Gestion_frais.php">Gestion des Frais</a></li>
+        <li class="admin-link gestionnaire-link"><a href="Cfiche_frais.php">Créer une Fiche de Frais</a></li>
+        <li class="admin-link gestionnaire-link"><a href="Afiche_frais.php">Afficher les Fiches de Frais</a></li>
     </ul>
     
     <script>
@@ -87,13 +89,19 @@ session_start(); // Démarre une session PHP pour gérer les données utilisateu
         <?php if (isset($_SESSION['role'])): ?>
             const role = <?= json_encode($_SESSION['role']); ?>; // Récupère le rôle de l'utilisateur
             if (role === 'admin') {
-                document.querySelectorAll('.admin-link').forEach(link => link.style.display = 'block'); // Affiche les liens pour les administrateurs
+                document.querySelectorAll('.admin-link').forEach(function(link) {
+                    link.style.display = 'block'; // Montre les liens pour les administrateurs
+                });
             }
             if (role === 'comptable') {
-                document.querySelectorAll('.comptable-link').forEach(link => link.style.display = 'block'); // Affiche les liens pour les comptables
+                document.querySelectorAll('.comptable-link').forEach(function(link){
+                    link.style.display = 'block'; // Affiche les liens pour les comptables
+                }); 
             }
             if (role === 'gestionnaire') {
-                document.querySelectorAll('.gestionnaire-link').forEach(link => link.style.display = 'block'); // Affiche les liens pour les gestionnaires
+                document.querySelectorAll('.gestionnaire-link').forEach(function(link){
+                    link.style.display = 'block'; // Affiche les liens pour les gestionnaires
+                }); 
             }
         <?php endif; ?>
     });

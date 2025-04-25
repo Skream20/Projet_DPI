@@ -1,5 +1,5 @@
 <?php
-include 'db_connect.php'; // Inclure le fichier de connexion à la base de données
+include 'fonction/db_connect.php'; // Inclure le fichier de connexion à la base de données
 
 $cnxBDD = connexion(); // Établir la connexion à la base de données
 
