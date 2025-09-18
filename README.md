@@ -5,7 +5,7 @@
 - **PHP**
 - **HTML / CSS**
 - **SQL**
-- **JS**
+
 
 ## Objectif
 
