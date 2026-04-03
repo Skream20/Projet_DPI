@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (!isset($_SESSION['role'])) {
+    header("Location: index.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -16,7 +23,7 @@
         <br>
         <p>
             
-            <form method="get" action="fonction/remplir_id.php">
+            <form method="get" action="fonction/remplir_id.php"> #
                 <label for="engagement">PÉRIODE D'ENGAGEMENT:</label> 
                 <label id="moisform" for="mois">Mois (2 chiffres):</label>
                 <input size="7" type="text" name="TxTMois" id="mois" value="<?php echo date('m'); ?>">

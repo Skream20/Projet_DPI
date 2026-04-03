@@ -6,10 +6,9 @@
 - **HTML / CSS**
 - **SQL**
 
-
 ## Objectif
 
-le site permet à GSB de gérer efficacement les frais professionnels de ses visiteurs médicaux. L'application vise à simplifier la saisie, la validation et le suivi des frais.
+Le site permet à GSB de gérer efficacement les frais professionnels de ses visiteurs médicaux. L'application vise à simplifier la saisie, la validation et le suivi des frais.
 
 ---
 

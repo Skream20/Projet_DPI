@@ -4,8 +4,8 @@ function connexion()
     $host = "localhost";
     $user = "root"; 
     $password = "password"; 
-    $dbname = "gestion_frais";
-    $port = 3307;
+    $dbname = "dpi";
+    $port = 3308;
 
     $mysqli = new mysqli($host, $user, $password, $dbname, $port);
     if ($mysqli->connect_errno) {

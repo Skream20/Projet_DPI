@@ -4,51 +4,69 @@ include 'db_connect.php';
 // Connexion à la base de données BDEtudiant
 $visiteurBD = connexion();
 
-$id = $_GET["TxTID"];
-$nom = $_GET["TxTNom"];
-$prenom = $_GET["TxTprenom"];
-$adress = $_GET["TxTadresse"];
-$ville = $_GET["TxTville"];
-$CP = $_GET["TxTcp"];
-$date_emb = $_GET["TxTembauche"];
-$login = $_GET["TxTlogin"];
-$mdp = $_GET["TxTmdp"];
-
 #enregistre user
 function visiteur($visiteurBD, $id, $nom, $prenom, $adress, $ville, $CP, $date_emb, $login, $mdp)
 {
     // Vérification si VIS_ID existe déjà
-    $checkSql = "SELECT VIS_ID FROM visiteur WHERE VIS_ID = '$id'";
-    $checkResult = $visiteurBD->query($checkSql);
+    $checkSql = "SELECT VIS_ID FROM visiteur WHERE VIS_ID = ?";
+    $checkStmt = $visiteurBD->prepare($checkSql);
+    $checkStmt->bind_param("s", $id);
+    $checkStmt->execute();
+    $checkResult = $checkStmt->get_result();
 
     if ($checkResult->num_rows > 0) {
         echo "Erreur : L'ID du visiteur existe déjà.<br/>";
+        $checkStmt->close();
+        return;
+    }
+    $checkStmt->close();
+
+    $sql = "INSERT INTO visiteur(VIS_ID, VIS_PRENOM, VIS_NOM, VIS_ADRESSE, VIS_CP, VIS_VILLE, VIS_DATE_EMBAUCHE)
+            VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $sql2 = "INSERT INTO `user`(VIS_ID, U_login, U_password, dteconnexion) VALUES (?, ?, ?, CURRENT_TIMESTAMP())";
+
+    $stmtVisiteur = $visiteurBD->prepare($sql);
+    $stmtUser = $visiteurBD->prepare($sql2);
+
+    if (!$stmtVisiteur || !$stmtUser) {
+        echo "Erreur lors de la préparation des requêtes : " . $visiteurBD->error . "<br/>";
         return;
     }
 
-    // Préparation de la requête SQL (ajustez les colonnes et les valeurs en conséquence)
-    $sql = "INSERT INTO visiteur(VIS_ID, VIS_PRENOM, VIS_NOM, VIS_ADRESSE, VIS_CP, VIS_VILLE, VIS_DATE_EMBAUCHE) 
-            VALUES ('$id', '$prenom', '$nom', '$adress', '$CP', '$ville', '$date_emb')";
-    $sql2 = "INSERT INTO USER(VIS_ID, login, password) VALUES ('$id', '$login', '$mdp')";
+    $stmtVisiteur->bind_param("sssssss", $id, $prenom, $nom, $adress, $CP, $ville, $date_emb);
+    $stmtUser->bind_param("sss", $id, $login, $mdp);
 
-    echo "Sql : " . $sql . "<br />";
-    echo "sql :" . $sql2 . "<br/>";
+    $result = $stmtVisiteur->execute();
+    $result2 = $stmtUser->execute();
 
-    // Exécution de la requête
-    $result = $visiteurBD->query($sql);
-    $result2 =  $visiteurBD->query($sql2);
+    $stmtVisiteur->close();
+    $stmtUser->close();
 
-    if ($result === TRUE && $result2 === TRUE) {
-        echo "Enregistrement ajouté avec succès.<br/>";
-        header('Location: liste_visit.php');
-        exit(); // Ensure script stops execution after redirect
+    if ($result && $result2) {
+        header('Location: ../liste_visit.php');
+        exit();
     } else {
         echo "Erreur lors de l'ajout de l'enregistrement : " . $visiteurBD->error . "<br/>";
     }
 }
 
-if (isset($_GET['submit'])) {
-    visiteur($visiteurBD, $id, $nom, $prenom, $adress, $ville, $CP, $date_emb, $login, $mdp);
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
+    $id = trim($_POST['TxTID'] ?? '');
+    $nom = trim($_POST['TxTNom'] ?? '');
+    $prenom = trim($_POST['TxTprenom'] ?? '');
+    $adress = trim($_POST['TxTadresse'] ?? '');
+    $ville = trim($_POST['TxTville'] ?? '');
+    $CP = trim($_POST['TxTcp'] ?? '');
+    $date_emb = trim($_POST['TxTembauche'] ?? '');
+    $login = trim($_POST['TxTlogin'] ?? '');
+    $mdp = $_POST['TxTmdp'] ?? '';
+
+    if ($id === '' || $nom === '' || $prenom === '' || $adress === '' || $ville === '' || $CP === '' || $date_emb === '' || $login === '' || $mdp === '') {
+        echo "Erreur : tous les champs sont obligatoires.<br/>";
+    } else {
+        $mdp = password_hash($mdp, PASSWORD_DEFAULT);
+        visiteur($visiteurBD, $id, $nom, $prenom, $adress, $ville, $CP, $date_emb, $login, $mdp);
+    }
 }
 
 // Fermer la connexion MYSQL à la fin du script

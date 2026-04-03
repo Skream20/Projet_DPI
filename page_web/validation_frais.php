@@ -1,54 +1,36 @@
 <?php
+session_start();
+if (!isset($_SESSION['role'])) {
+    header("Location: index.php");
+    exit();
+}
+
 include 'fonction/db_connect.php'; // Inclure le fichier de connexion à la base de données
 
 $cnxBDD = connexion(); // Établir la connexion à la base de données
 
-// Requête SQL pour récupérer la quantité de frais au forfait
-$query = "SELECT LIG_QTE FROM ligne_frais_forfait WHERE FOR_ID = 'REP'";
+// Prepared statement for flat rate fees
+$forfeits = ['REP', 'KM', 'NUI', 'ETP'];
+$fees = [];
 
-// Exécution de la requête
-$result = $cnxBDD->query($query) or die("Requête invalide : " . $query);
+foreach ($forfeits as $forfeit) {
+    $stmt = $cnxBDD->prepare("SELECT LIG_QTE FROM ligne_frais_forfait WHERE FOR_ID = ?");
+    $stmt->bind_param("s", $forfeit);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+    $fees[$forfeit] = $row['LIG_QTE'] ?? 0;
+}
 
-// Récupérer la valeur de la quantité de frais au forfait
-$row = $result->fetch_assoc();
-$ligne_frais_rep = $row['LIG_QTE'];
+$ligne_frais_rep = $fees['REP'];
+$ligne_frais_km = $fees['KM'];
+$ligne_frais_nuitee = $fees['NUI'];
+$ligne_frais_etape = $fees['ETP'];
 
-
-// Requête SQL pour récupérer la quantité de frais au forfait
-$query = "SELECT LIG_QTE FROM ligne_frais_forfait WHERE FOR_ID = 'km'";
-
-// Exécution de la requête
-$result = $cnxBDD->query($query) or die("Requête invalide : " . $query);
-
-// Récupérer la valeur de la quantité de frais au forfait
-$row = $result->fetch_assoc();
-$ligne_frais_km = $row['LIG_QTE'];
-
-// Requête SQL pour récupérer la quantité de frais au forfait
-$query = "SELECT LIG_QTE FROM ligne_frais_forfait WHERE FOR_ID = 'NUI'";
-
-// Exécution de la requête
-$result = $cnxBDD->query($query) or die("Requête invalide : " . $query);
-
-// Récupérer la valeur de la quantité de frais au forfait
-$row = $result->fetch_assoc();
-$ligne_frais_nuitee = $row['LIG_QTE'];
-
-// Requête SQL pour récupérer la quantité de frais au forfait
-$query = "SELECT LIG_QTE FROM ligne_frais_forfait WHERE FOR_ID = 'ETP'";
-
-// Exécution de la requête
-$result = $cnxBDD->query($query) or die("Requête invalide : " . $query);
-
-// Récupérer la valeur de la quantité de frais au forfait
-$row = $result->fetch_assoc();
-$ligne_frais_etape = $row['LIG_QTE'];
-
-$query = "SELECT VIS_ID , VIS_NOM FROM visiteur ";
-$result = $cnxBDD->query($query) or die("Requête invalide : " . $query);
-
-$row = $result->fetch_assoc();
-
+// Prepared statement for visitors
+$stmt = $cnxBDD->prepare("SELECT VIS_ID, VIS_NOM FROM visiteur");
+$stmt->execute();
+$result = $stmt->get_result();
 
 ?>
 

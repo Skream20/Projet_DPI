@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION['role'])) {
+    header("Location: index.php");
+    exit();
+}
 
 include 'fonction/db_connect.php'; 
 

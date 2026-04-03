@@ -4,27 +4,30 @@ function modifierVisiteur($visiteurBD, $id, $nom, $prenom, $adress, $ville, $CP,
 {
 
     $sql = "UPDATE visiteur SET 
-            VIS_PRENOM = '$prenom', 
-            VIS_NOM = '$nom', 
-            VIS_ADRESSE = '$adress', 
-            VIS_CP = '$CP', 
-            VIS_VILLE = '$ville', 
-            VIS_DATE_EMBAUCHE = '$date_emb' 
-            WHERE VIS_ID = '$id'";
+            VIS_PRENOM = ?, 
+            VIS_NOM = ?, 
+            VIS_ADRESSE = ?, 
+            VIS_CP = ?, 
+            VIS_VILLE = ?, 
+            VIS_DATE_EMBAUCHE = ? 
+            WHERE VIS_ID = ?";
 
-    $sql2 = "UPDATE USER SET 
-             login = '$login', 
-             password = '$mdp' 
-             WHERE VIS_ID = '$id'";
+    $stmt1 = $visiteurBD->prepare($sql);
+    $stmt1->bind_param("sssssss", $prenom, $nom, $adress, $CP, $ville, $date_emb, $id);
+    $result = $stmt1->execute();
 
-    echo "Sql : " . $sql . "<br />";
-    echo "sql :" . $sql2 . "<br/>";
+    $mdp = bcrypt($mdp, PASSWORD_BCRYPT);
 
-    // Exécution de la requête
-    $result = $visiteurBD->query($sql);
-    $result2 =  $visiteurBD->query($sql2);
+    $sql2 = "UPDATE user SET 
+             U_login = ?, 
+             U_password = ? 
+             WHERE VIS_ID = ?";
 
-    if ($result === TRUE && $result2 === TRUE) {
+    $stmt2 = $visiteurBD->prepare($sql2);
+    $stmt2->bind_param("sss", $login, $mdp, $id);
+    $result2 = $stmt2->execute();
+
+    if ($result && $result2) {
         echo "Enregistrement mis à jour avec succès.<br/>";
         header('Location: liste_visit.php');
         exit(); // Ensure script stops execution after redirect
