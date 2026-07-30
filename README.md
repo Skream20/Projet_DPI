@@ -144,3 +144,31 @@ Le site web est organisé en plusieurs fichiers et dossiers, chacun ayant un rô
      - Tables principales : `visiteur`, `fiche_frais`, `ligne_frais_forfait`, `frais_forfait`, `etat`, `user`.
 
 ---
+
+## Points d'amélioration
+
+1. **Sécuriser la configuration de la base de données**
+   - Éviter les identifiants en dur dans `fonction/db_connect.php`.
+   - Utiliser des variables d'environnement pour l'hôte, l'utilisateur, le mot de passe et le port.
+
+2. **Renforcer la protection CSRF**
+   - Le token CSRF est généré dans `index.php`, mais il doit aussi être validé côté serveur à la soumission du formulaire.
+   - Étendre cette protection aux autres formulaires critiques (création, modification, suppression).
+
+3. **Uniformiser l'authentification**
+   - Supprimer la compatibilité de secours avec les mots de passe en clair (`$password === $row['U_password']`) pour n'accepter que `password_verify`.
+   - Prévoir une migration des anciens mots de passe vers un format haché.
+
+4. **Améliorer la validation des entrées**
+   - Ajouter des contrôles serveur plus stricts (format CP, date, longueurs, caractères autorisés).
+   - Normaliser les messages d'erreur pour éviter les divergences entre pages.
+
+5. **Structurer le projet pour la maintenance**
+   - Isoler la logique métier des fichiers de vue (HTML/PHP mélangés).
+   - Harmoniser le nommage des fichiers (ex. `Afiche_frais.php`) pour améliorer la lisibilité.
+
+6. **Mettre en place des tests automatisés**
+   - Ajouter des tests ciblés sur l'authentification, la création de visiteurs et la gestion des frais.
+   - Vérifier en priorité les parcours critiques et les contrôles de sécurité.
+
+---
